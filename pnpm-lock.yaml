@@ -13,6 +13,7 @@ devDependencies:
   '@types/fs-extra': 8.0.1
   '@types/jest': 24.9.0
   '@types/jest-in-case': 1.0.1
+  '@types/lodash': 4.14.149
   '@types/node': 13.1.7
   '@types/power-assert': 1.5.3
   '@types/puppeteer': 2.0.0
@@ -504,6 +505,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
+  /@types/lodash/4.14.149:
+    dev: true
+    resolution:
+      integrity: sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
   /@types/node/12.12.24:
     dev: true
     resolution:
@@ -4460,6 +4465,7 @@ specifiers:
   '@types/fs-extra': ^8.0.1
   '@types/jest': ^24.9.0
   '@types/jest-in-case': ^1.0.1
+  '@types/lodash': ^4.14.149
   '@types/node': ^13.1.7
   '@types/power-assert': ^1.5.3
   '@types/puppeteer': ^2.0.0
