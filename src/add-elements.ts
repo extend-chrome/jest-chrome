@@ -38,9 +38,10 @@ export const addEvent = (
       )
     }
 
+    const types = ['boolean', 'number', 'string', 'function', 'object']
     args.forEach((arg, i) => {
       const param = parameters[i]
-      if (typeof arg !== param.type) {
+      if (types.includes(param.type) && typeof arg !== param.type) {
         throw new TypeError(
           `Invalid argument for ${name}: (${param.name}) should be type "${param.type}"`,
         )

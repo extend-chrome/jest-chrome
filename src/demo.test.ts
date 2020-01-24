@@ -1,19 +1,4 @@
-# WIP
-
-# `@bumble/jest-chrome`
-
-A mock of the Chrome API for Chrome extensions for use with Jest.
-
-fThe `chrome` object is based on schemas from the Chromium
-project.
-
-TypeScript support is built in. Each function and event
-is typed using the types from `@types/chrome`.
-
-## Usage
-
-```javascript
-import { chrome } from '@bumble/jest-chrome'
+import { chrome } from '.'
 
 test('chrome api functions', () => {
   const manifest = {
@@ -50,4 +35,3 @@ test('chrome api events', () => {
   )
   expect(sendResponseSpy).not.toBeCalled()
 })
-```
