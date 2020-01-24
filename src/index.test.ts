@@ -5,8 +5,6 @@ import {
   MonotypeEventSelector,
 } from './create-event'
 
-chrome.runtime.connect.
-
 test('gets namespace', () => {
   expect(chrome.runtime).toBeDefined()
   expect(chrome.runtime).toBe(chrome.runtime)

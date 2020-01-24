@@ -1,4 +1,4 @@
-import { JestChrome as JestChromeNamespace } from '../playground/jest-chrome'
+import { JestChrome as JestChromeNamespace } from './jest-chrome'
 import jestChromeSchema from './jest-chrome-schema.json'
 import {
   addEvent,
