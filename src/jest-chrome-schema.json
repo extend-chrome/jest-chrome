@@ -1,0 +1,7477 @@
+{
+  "alarms": {
+    "onAlarm": {
+      "type": "event",
+      "name": "onAlarm",
+      "parameters": [
+        {
+          "name": "alarm",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "create": {
+      "type": "function",
+      "name": "create",
+      "parameters": [
+        {
+          "name": "name",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "alarmInfo",
+          "optional": false,
+          "length": 0
+        }
+      ]
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "name",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "clear": {
+      "type": "function",
+      "name": "clear",
+      "parameters": [
+        {
+          "name": "name",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "clearAll": {
+      "type": "function",
+      "name": "clearAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "bookmarks": {
+    "onCreated": {
+      "type": "event",
+      "name": "onCreated",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "bookmark",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onRemoved": {
+      "type": "event",
+      "name": "onRemoved",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "removeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onChanged": {
+      "type": "event",
+      "name": "onChanged",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "changeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onMoved": {
+      "type": "event",
+      "name": "onMoved",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "moveInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onChildrenReordered": {
+      "type": "event",
+      "name": "onChildrenReordered",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "reorderInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onImportBegan": {
+      "type": "event",
+      "name": "onImportBegan",
+      "parameters": [],
+      "rules": false
+    },
+    "onImportEnded": {
+      "type": "event",
+      "name": "onImportEnded",
+      "parameters": [],
+      "rules": false
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "idOrIdList",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getChildren": {
+      "type": "function",
+      "name": "getChildren",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getRecent": {
+      "type": "function",
+      "name": "getRecent",
+      "parameters": [
+        {
+          "name": "numberOfItems",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getTree": {
+      "type": "function",
+      "name": "getTree",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getSubTree": {
+      "type": "function",
+      "name": "getSubTree",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "search": {
+      "type": "function",
+      "name": "search",
+      "parameters": [
+        {
+          "name": "query",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "create": {
+      "type": "function",
+      "name": "create",
+      "parameters": [
+        {
+          "name": "bookmark",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "move": {
+      "type": "function",
+      "name": "move",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "destination",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "update": {
+      "type": "function",
+      "name": "update",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "changes",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeTree": {
+      "type": "function",
+      "name": "removeTree",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "import": {
+      "type": "function",
+      "name": "import",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "export": {
+      "type": "function",
+      "name": "export",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "MAX_SUSTAINED_WRITE_OPERATIONS_PER_MINUTE": {
+      "type": "property",
+      "name": "MAX_SUSTAINED_WRITE_OPERATIONS_PER_MINUTE",
+      "deprecated": "Bookmark write operations are no longer limited by Chrome.",
+      "value": 1000000
+    },
+    "MAX_WRITE_OPERATIONS_PER_HOUR": {
+      "type": "property",
+      "name": "MAX_WRITE_OPERATIONS_PER_HOUR",
+      "deprecated": "Bookmark write operations are no longer limited by Chrome.",
+      "value": 1000000
+    }
+  },
+  "browserAction": {
+    "onClicked": {
+      "type": "event",
+      "name": "onClicked",
+      "parameters": [
+        {
+          "name": "tab",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "setTitle": {
+      "type": "function",
+      "name": "setTitle",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getTitle": {
+      "type": "function",
+      "name": "getTitle",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setIcon": {
+      "type": "function",
+      "name": "setIcon",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "setPopup": {
+      "type": "function",
+      "name": "setPopup",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getPopup": {
+      "type": "function",
+      "name": "getPopup",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setBadgeText": {
+      "type": "function",
+      "name": "setBadgeText",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getBadgeText": {
+      "type": "function",
+      "name": "getBadgeText",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setBadgeBackgroundColor": {
+      "type": "function",
+      "name": "setBadgeBackgroundColor",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getBadgeBackgroundColor": {
+      "type": "function",
+      "name": "getBadgeBackgroundColor",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "enable": {
+      "type": "function",
+      "name": "enable",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "disable": {
+      "type": "function",
+      "name": "disable",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "openPopup": {
+      "type": "function",
+      "name": "openPopup",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "browsingData": {
+    "settings": {
+      "type": "function",
+      "name": "settings",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "dataToRemove",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeAppcache": {
+      "type": "function",
+      "name": "removeAppcache",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeCache": {
+      "type": "function",
+      "name": "removeCache",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeCookies": {
+      "type": "function",
+      "name": "removeCookies",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeDownloads": {
+      "type": "function",
+      "name": "removeDownloads",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeFileSystems": {
+      "type": "function",
+      "name": "removeFileSystems",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeFormData": {
+      "type": "function",
+      "name": "removeFormData",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeHistory": {
+      "type": "function",
+      "name": "removeHistory",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeIndexedDB": {
+      "type": "function",
+      "name": "removeIndexedDB",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeLocalStorage": {
+      "type": "function",
+      "name": "removeLocalStorage",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removePluginData": {
+      "type": "function",
+      "name": "removePluginData",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removePasswords": {
+      "type": "function",
+      "name": "removePasswords",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeWebSQL": {
+      "type": "function",
+      "name": "removeWebSQL",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "commands": {
+    "onCommand": {
+      "type": "event",
+      "name": "onCommand",
+      "parameters": [
+        {
+          "name": "command",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "contentSettings": {
+    "automaticDownloads": {
+      "type": "property",
+      "name": "automaticDownloads",
+      "value": [
+        "automatic-downloads",
+        {
+          "$ref": "MultipleAutomaticDownloadsContentSetting"
+        }
+      ]
+    },
+    "camera": {
+      "type": "property",
+      "name": "camera",
+      "value": [
+        "media-stream-camera",
+        {
+          "$ref": "CameraContentSetting"
+        }
+      ]
+    },
+    "cookies": {
+      "type": "property",
+      "name": "cookies",
+      "value": [
+        "cookies",
+        {
+          "$ref": "CookiesContentSetting"
+        }
+      ]
+    },
+    "fullscreen": {
+      "type": "property",
+      "name": "fullscreen",
+      "value": [
+        "fullscreen",
+        {
+          "$ref": "FullscreenContentSetting"
+        }
+      ]
+    },
+    "images": {
+      "type": "property",
+      "name": "images",
+      "value": [
+        "images",
+        {
+          "$ref": "ImagesContentSetting"
+        }
+      ]
+    },
+    "javascript": {
+      "type": "property",
+      "name": "javascript",
+      "value": [
+        "javascript",
+        {
+          "$ref": "JavascriptContentSetting"
+        }
+      ]
+    },
+    "location": {
+      "type": "property",
+      "name": "location",
+      "value": [
+        "geolocation",
+        {
+          "$ref": "LocationContentSetting"
+        }
+      ]
+    },
+    "microphone": {
+      "type": "property",
+      "name": "microphone",
+      "value": [
+        "media-stream-mic",
+        {
+          "$ref": "MicrophoneContentSetting"
+        }
+      ]
+    },
+    "mouselock": {
+      "type": "property",
+      "name": "mouselock",
+      "value": [
+        "mouselock",
+        {
+          "$ref": "MouselockContentSetting"
+        }
+      ]
+    },
+    "notifications": {
+      "type": "property",
+      "name": "notifications",
+      "value": [
+        "notifications",
+        {
+          "$ref": "NotificationsContentSetting"
+        }
+      ]
+    },
+    "plugins": {
+      "type": "property",
+      "name": "plugins",
+      "value": [
+        "plugins",
+        {
+          "$ref": "PluginsContentSetting"
+        }
+      ]
+    },
+    "popups": {
+      "type": "property",
+      "name": "popups",
+      "value": [
+        "popups",
+        {
+          "$ref": "PopupsContentSetting"
+        }
+      ]
+    },
+    "unsandboxedPlugins": {
+      "type": "property",
+      "name": "unsandboxedPlugins",
+      "value": [
+        "ppapi-broker",
+        {
+          "$ref": "PpapiBrokerContentSetting"
+        }
+      ]
+    }
+  },
+  "contextMenus": {
+    "onClicked": {
+      "type": "event",
+      "name": "onClicked",
+      "parameters": [],
+      "rules": false
+    },
+    "create": {
+      "type": "function",
+      "name": "create",
+      "parameters": [
+        {
+          "name": "createProperties",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "update": {
+      "type": "function",
+      "name": "update",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "updateProperties",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "menuItemId",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "removeAll": {
+      "type": "function",
+      "name": "removeAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "ACTION_MENU_TOP_LEVEL_LIMIT": {
+      "type": "property",
+      "name": "ACTION_MENU_TOP_LEVEL_LIMIT",
+      "value": 6
+    }
+  },
+  "cookies": {
+    "onChanged": {
+      "type": "event",
+      "name": "onChanged",
+      "parameters": [
+        {
+          "name": "changeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "set": {
+      "type": "function",
+      "name": "set",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAllCookieStores": {
+      "type": "function",
+      "name": "getAllCookieStores",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "debugger": {
+    "onEvent": {
+      "type": "event",
+      "name": "onEvent",
+      "parameters": [
+        {
+          "name": "source",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "method",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "params",
+          "optional": true,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onDetach": {
+      "type": "event",
+      "name": "onDetach",
+      "parameters": [
+        {
+          "name": "source",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "reason",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "attach": {
+      "type": "function",
+      "name": "attach",
+      "parameters": [
+        {
+          "name": "target",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "requiredVersion",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "detach": {
+      "type": "function",
+      "name": "detach",
+      "parameters": [
+        {
+          "name": "target",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "sendCommand": {
+      "type": "function",
+      "name": "sendCommand",
+      "parameters": [
+        {
+          "name": "target",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "method",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "commandParams",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getTargets": {
+      "type": "function",
+      "name": "getTargets",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "declarativeContent": {
+    "onPageChanged": {
+      "type": "event",
+      "name": "onPageChanged",
+      "parameters": [],
+      "rules": false
+    }
+  },
+  "desktopCapture": {
+    "chooseDesktopMedia": {
+      "type": "function",
+      "name": "chooseDesktopMedia",
+      "parameters": [
+        {
+          "name": "sources",
+          "optional": false,
+          "length": 0,
+          "type": "array"
+        },
+        {
+          "name": "targetTab",
+          "optional": true,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "cancelChooseDesktopMedia": {
+      "type": "function",
+      "name": "cancelChooseDesktopMedia",
+      "parameters": [
+        {
+          "name": "desktopMediaRequestId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "devtools": {
+    "inspectedWindow": {
+      "onResourceAdded": {
+        "type": "event",
+        "name": "onResourceAdded",
+        "parameters": [
+          {
+            "name": "resource",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onResourceContentCommitted": {
+        "type": "event",
+        "name": "onResourceContentCommitted",
+        "parameters": [
+          {
+            "name": "resource",
+            "optional": false,
+            "parameters": 0
+          },
+          {
+            "name": "content",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          }
+        ],
+        "rules": false
+      },
+      "eval": {
+        "type": "function",
+        "name": "eval",
+        "parameters": [
+          {
+            "name": "expression",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "options",
+            "optional": true,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 2,
+            "type": "function"
+          }
+        ]
+      },
+      "reload": {
+        "type": "function",
+        "name": "reload",
+        "parameters": [
+          {
+            "name": "reloadOptions",
+            "optional": true,
+            "length": 0,
+            "type": "object"
+          }
+        ]
+      },
+      "getResources": {
+        "type": "function",
+        "name": "getResources",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "tabId": {
+        "type": "property",
+        "name": "tabId"
+      }
+    },
+    "network": {
+      "onRequestFinished": {
+        "type": "event",
+        "name": "onRequestFinished",
+        "parameters": [
+          {
+            "name": "request",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onNavigated": {
+        "type": "event",
+        "name": "onNavigated",
+        "parameters": [
+          {
+            "name": "url",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          }
+        ],
+        "rules": false
+      },
+      "getHAR": {
+        "type": "function",
+        "name": "getHAR",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      }
+    },
+    "panels": {
+      "create": {
+        "type": "function",
+        "name": "create",
+        "parameters": [
+          {
+            "name": "title",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "iconPath",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "pagePath",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "setOpenResourceHandler": {
+        "type": "function",
+        "name": "setOpenResourceHandler",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "openResource": {
+        "type": "function",
+        "name": "openResource",
+        "parameters": [
+          {
+            "name": "url",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "lineNumber",
+            "optional": false,
+            "length": 0,
+            "type": "integer"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "elements": {
+        "type": "property",
+        "name": "elements"
+      },
+      "sources": {
+        "type": "property",
+        "name": "sources"
+      }
+    }
+  },
+  "dial": {
+    "onDeviceList": {
+      "type": "event",
+      "name": "onDeviceList",
+      "parameters": [
+        {
+          "name": "result",
+          "optional": false,
+          "parameters": 0,
+          "type": "array"
+        }
+      ],
+      "rules": false
+    },
+    "onError": {
+      "type": "event",
+      "name": "onError",
+      "parameters": [
+        {
+          "name": "error",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "discoverNow": {
+      "type": "function",
+      "name": "discoverNow",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "fetchDeviceDescription": {
+      "type": "function",
+      "name": "fetchDeviceDescription",
+      "parameters": [
+        {
+          "name": "deviceLabel",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "downloads": {
+    "onCreated": {
+      "type": "event",
+      "name": "onCreated",
+      "parameters": [
+        {
+          "name": "downloadItem",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onErased": {
+      "type": "event",
+      "name": "onErased",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        }
+      ],
+      "rules": false
+    },
+    "onChanged": {
+      "type": "event",
+      "name": "onChanged",
+      "parameters": [
+        {
+          "name": "downloadDelta",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onDeterminingFilename": {
+      "type": "event",
+      "name": "onDeterminingFilename",
+      "parameters": [
+        {
+          "name": "downloadItem",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "suggest",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "download": {
+      "type": "function",
+      "name": "download",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "search": {
+      "type": "function",
+      "name": "search",
+      "parameters": [
+        {
+          "name": "query",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "pause": {
+      "type": "function",
+      "name": "pause",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "resume": {
+      "type": "function",
+      "name": "resume",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "cancel": {
+      "type": "function",
+      "name": "cancel",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getFileIcon": {
+      "type": "function",
+      "name": "getFileIcon",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "open": {
+      "type": "function",
+      "name": "open",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "show": {
+      "type": "function",
+      "name": "show",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "showDefaultFolder": {
+      "type": "function",
+      "name": "showDefaultFolder",
+      "parameters": []
+    },
+    "erase": {
+      "type": "function",
+      "name": "erase",
+      "parameters": [
+        {
+          "name": "query",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "removeFile": {
+      "type": "function",
+      "name": "removeFile",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "acceptDanger": {
+      "type": "function",
+      "name": "acceptDanger",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "drag": {
+      "type": "function",
+      "name": "drag",
+      "parameters": [
+        {
+          "name": "downloadId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "setShelfEnabled": {
+      "type": "function",
+      "name": "setShelfEnabled",
+      "parameters": [
+        {
+          "name": "enabled",
+          "optional": false,
+          "length": 0,
+          "type": "boolean"
+        }
+      ]
+    }
+  },
+  "events": {},
+  "extension": {
+    "onRequest": {
+      "type": "event",
+      "name": "onRequest",
+      "deprecated": "Please use $(ref:runtime.onMessage).",
+      "parameters": [
+        {
+          "name": "request",
+          "optional": true,
+          "parameters": 0,
+          "type": "any"
+        },
+        {
+          "name": "sender",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "sendResponse",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onRequestExternal": {
+      "type": "event",
+      "name": "onRequestExternal",
+      "deprecated": "Please use $(ref:runtime.onMessageExternal).",
+      "parameters": [
+        {
+          "name": "request",
+          "optional": true,
+          "parameters": 0,
+          "type": "any"
+        },
+        {
+          "name": "sender",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "sendResponse",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "sendRequest": {
+      "type": "function",
+      "name": "sendRequest",
+      "deprecated": "Please use $(ref:runtime.sendMessage).",
+      "parameters": [
+        {
+          "name": "extensionId",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "request",
+          "optional": false,
+          "length": 0,
+          "type": "any"
+        },
+        {
+          "name": "responseCallback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getURL": {
+      "type": "function",
+      "name": "getURL",
+      "parameters": [
+        {
+          "name": "path",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        }
+      ]
+    },
+    "getViews": {
+      "type": "function",
+      "name": "getViews",
+      "parameters": [
+        {
+          "name": "fetchProperties",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getBackgroundPage": {
+      "type": "function",
+      "name": "getBackgroundPage",
+      "parameters": []
+    },
+    "getExtensionTabs": {
+      "type": "function",
+      "name": "getExtensionTabs",
+      "deprecated": "Please use $(ref:extension.getViews) <code>{type: \"tab\"}</code>.",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "isAllowedIncognitoAccess": {
+      "type": "function",
+      "name": "isAllowedIncognitoAccess",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "isAllowedFileSchemeAccess": {
+      "type": "function",
+      "name": "isAllowedFileSchemeAccess",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setUpdateUrlData": {
+      "type": "function",
+      "name": "setUpdateUrlData",
+      "parameters": [
+        {
+          "name": "data",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        }
+      ]
+    },
+    "inIncognitoContext": {
+      "type": "property",
+      "name": "inIncognitoContext"
+    },
+    "lastError": {
+      "type": "property",
+      "name": "lastError"
+    }
+  },
+  "extensionTypes": {},
+  "fontSettings": {
+    "onFontChanged": {
+      "type": "event",
+      "name": "onFontChanged",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onDefaultFontSizeChanged": {
+      "type": "event",
+      "name": "onDefaultFontSizeChanged",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onDefaultFixedFontSizeChanged": {
+      "type": "event",
+      "name": "onDefaultFixedFontSizeChanged",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onMinimumFontSizeChanged": {
+      "type": "event",
+      "name": "onMinimumFontSizeChanged",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "clearFont": {
+      "type": "function",
+      "name": "clearFont",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getFont": {
+      "type": "function",
+      "name": "getFont",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setFont": {
+      "type": "function",
+      "name": "setFont",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getFontList": {
+      "type": "function",
+      "name": "getFontList",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "clearDefaultFontSize": {
+      "type": "function",
+      "name": "clearDefaultFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getDefaultFontSize": {
+      "type": "function",
+      "name": "getDefaultFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setDefaultFontSize": {
+      "type": "function",
+      "name": "setDefaultFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "clearDefaultFixedFontSize": {
+      "type": "function",
+      "name": "clearDefaultFixedFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getDefaultFixedFontSize": {
+      "type": "function",
+      "name": "getDefaultFixedFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setDefaultFixedFontSize": {
+      "type": "function",
+      "name": "setDefaultFixedFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "clearMinimumFontSize": {
+      "type": "function",
+      "name": "clearMinimumFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getMinimumFontSize": {
+      "type": "function",
+      "name": "getMinimumFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setMinimumFontSize": {
+      "type": "function",
+      "name": "setMinimumFontSize",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "gcm": {
+    "onMessage": {
+      "type": "event",
+      "name": "onMessage",
+      "parameters": [
+        {
+          "name": "message",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onMessagesDeleted": {
+      "type": "event",
+      "name": "onMessagesDeleted",
+      "parameters": [],
+      "rules": false
+    },
+    "onSendError": {
+      "type": "event",
+      "name": "onSendError",
+      "parameters": [
+        {
+          "name": "error",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "register": {
+      "type": "function",
+      "name": "register",
+      "parameters": [
+        {
+          "name": "senderIds",
+          "optional": false,
+          "length": 0,
+          "type": "array"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "unregister": {
+      "type": "function",
+      "name": "unregister",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "send": {
+      "type": "function",
+      "name": "send",
+      "parameters": [
+        {
+          "name": "message",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "MAX_MESSAGE_SIZE": {
+      "type": "property",
+      "name": "MAX_MESSAGE_SIZE",
+      "value": 4096
+    }
+  },
+  "history": {
+    "onVisited": {
+      "type": "event",
+      "name": "onVisited",
+      "parameters": [
+        {
+          "name": "result",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onVisitRemoved": {
+      "type": "event",
+      "name": "onVisitRemoved",
+      "parameters": [
+        {
+          "name": "removed",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "search": {
+      "type": "function",
+      "name": "search",
+      "parameters": [
+        {
+          "name": "query",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getVisits": {
+      "type": "function",
+      "name": "getVisits",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "addUrl": {
+      "type": "function",
+      "name": "addUrl",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "deleteUrl": {
+      "type": "function",
+      "name": "deleteUrl",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "deleteRange": {
+      "type": "function",
+      "name": "deleteRange",
+      "parameters": [
+        {
+          "name": "range",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "deleteAll": {
+      "type": "function",
+      "name": "deleteAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "getAcceptLanguages": {
+      "type": "function",
+      "name": "getAcceptLanguages",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getMessage": {
+      "type": "function",
+      "name": "getMessage",
+      "parameters": [
+        {
+          "name": "messageName",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "substitutions",
+          "optional": true,
+          "length": 0,
+          "type": "any"
+        }
+      ]
+    },
+    "getUILanguage": {
+      "type": "function",
+      "name": "getUILanguage",
+      "parameters": []
+    },
+    "detectLanguage": {
+      "type": "function",
+      "name": "detectLanguage",
+      "parameters": [
+        {
+          "name": "text",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "identity": {
+    "onSignInChanged": {
+      "type": "event",
+      "name": "onSignInChanged",
+      "parameters": [
+        {
+          "name": "account",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "signedIn",
+          "optional": false,
+          "parameters": 0,
+          "type": "boolean"
+        }
+      ],
+      "rules": false
+    },
+    "getAccounts": {
+      "type": "function",
+      "name": "getAccounts",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAuthToken": {
+      "type": "function",
+      "name": "getAuthToken",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": true,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getProfileUserInfo": {
+      "type": "function",
+      "name": "getProfileUserInfo",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "removeCachedAuthToken": {
+      "type": "function",
+      "name": "removeCachedAuthToken",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "launchWebAuthFlow": {
+      "type": "function",
+      "name": "launchWebAuthFlow",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getRedirectURL": {
+      "type": "function",
+      "name": "getRedirectURL",
+      "parameters": [
+        {
+          "name": "path",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "idle": {
+    "onStateChanged": {
+      "type": "event",
+      "name": "onStateChanged",
+      "parameters": [
+        {
+          "name": "newState",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "queryState": {
+      "type": "function",
+      "name": "queryState",
+      "parameters": [
+        {
+          "name": "detectionIntervalInSeconds",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setDetectionInterval": {
+      "type": "function",
+      "name": "setDetectionInterval",
+      "parameters": [
+        {
+          "name": "intervalInSeconds",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "instanceID": {
+    "onTokenRefresh": {
+      "type": "event",
+      "name": "onTokenRefresh",
+      "parameters": [],
+      "rules": false
+    },
+    "getID": {
+      "type": "function",
+      "name": "getID",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getCreationTime": {
+      "type": "function",
+      "name": "getCreationTime",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getToken": {
+      "type": "function",
+      "name": "getToken",
+      "parameters": [
+        {
+          "name": "getTokenParams",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "deleteToken": {
+      "type": "function",
+      "name": "deleteToken",
+      "parameters": [
+        {
+          "name": "deleteTokenParams",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "deleteID": {
+      "type": "function",
+      "name": "deleteID",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "management": {
+    "onInstalled": {
+      "type": "event",
+      "name": "onInstalled",
+      "parameters": [
+        {
+          "name": "info",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onUninstalled": {
+      "type": "event",
+      "name": "onUninstalled",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "onEnabled": {
+      "type": "event",
+      "name": "onEnabled",
+      "parameters": [
+        {
+          "name": "info",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onDisabled": {
+      "type": "event",
+      "name": "onDisabled",
+      "parameters": [
+        {
+          "name": "info",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getSelf": {
+      "type": "function",
+      "name": "getSelf",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getPermissionWarningsById": {
+      "type": "function",
+      "name": "getPermissionWarningsById",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getPermissionWarningsByManifest": {
+      "type": "function",
+      "name": "getPermissionWarningsByManifest",
+      "parameters": [
+        {
+          "name": "manifestStr",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setEnabled": {
+      "type": "function",
+      "name": "setEnabled",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "enabled",
+          "optional": false,
+          "length": 0,
+          "type": "boolean"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "uninstall": {
+      "type": "function",
+      "name": "uninstall",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "uninstallSelf": {
+      "type": "function",
+      "name": "uninstallSelf",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "launchApp": {
+      "type": "function",
+      "name": "launchApp",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "createAppShortcut": {
+      "type": "function",
+      "name": "createAppShortcut",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "setLaunchType": {
+      "type": "function",
+      "name": "setLaunchType",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "launchType",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "generateAppForLink": {
+      "type": "function",
+      "name": "generateAppForLink",
+      "parameters": [
+        {
+          "name": "url",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "notifications": {
+    "onClosed": {
+      "type": "event",
+      "name": "onClosed",
+      "parameters": [
+        {
+          "name": "notificationId",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "byUser",
+          "optional": false,
+          "parameters": 0,
+          "type": "boolean"
+        }
+      ],
+      "rules": false
+    },
+    "onClicked": {
+      "type": "event",
+      "name": "onClicked",
+      "parameters": [
+        {
+          "name": "notificationId",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "onButtonClicked": {
+      "type": "event",
+      "name": "onButtonClicked",
+      "parameters": [
+        {
+          "name": "notificationId",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "buttonIndex",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        }
+      ],
+      "rules": false
+    },
+    "onPermissionLevelChanged": {
+      "type": "event",
+      "name": "onPermissionLevelChanged",
+      "parameters": [
+        {
+          "name": "level",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onShowSettings": {
+      "type": "event",
+      "name": "onShowSettings",
+      "parameters": [],
+      "rules": false
+    },
+    "create": {
+      "type": "function",
+      "name": "create",
+      "parameters": [
+        {
+          "name": "notificationId",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "update": {
+      "type": "function",
+      "name": "update",
+      "parameters": [
+        {
+          "name": "notificationId",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "clear": {
+      "type": "function",
+      "name": "clear",
+      "parameters": [
+        {
+          "name": "notificationId",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getPermissionLevel": {
+      "type": "function",
+      "name": "getPermissionLevel",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "omnibox": {
+    "onInputStarted": {
+      "type": "event",
+      "name": "onInputStarted",
+      "parameters": [],
+      "rules": false
+    },
+    "onInputChanged": {
+      "type": "event",
+      "name": "onInputChanged",
+      "parameters": [
+        {
+          "name": "text",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "suggest",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onInputEntered": {
+      "type": "event",
+      "name": "onInputEntered",
+      "parameters": [
+        {
+          "name": "text",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "disposition",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onInputCancelled": {
+      "type": "event",
+      "name": "onInputCancelled",
+      "parameters": [],
+      "rules": false
+    },
+    "sendSuggestions": {
+      "type": "function",
+      "name": "sendSuggestions",
+      "parameters": [
+        {
+          "name": "requestId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "suggestResults",
+          "optional": false,
+          "length": 0,
+          "type": "array"
+        }
+      ]
+    },
+    "setDefaultSuggestion": {
+      "type": "function",
+      "name": "setDefaultSuggestion",
+      "parameters": [
+        {
+          "name": "suggestion",
+          "optional": false,
+          "length": 0
+        }
+      ]
+    }
+  },
+  "pageAction": {
+    "onClicked": {
+      "type": "event",
+      "name": "onClicked",
+      "parameters": [
+        {
+          "name": "tab",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "show": {
+      "type": "function",
+      "name": "show",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "hide": {
+      "type": "function",
+      "name": "hide",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        }
+      ]
+    },
+    "setTitle": {
+      "type": "function",
+      "name": "setTitle",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getTitle": {
+      "type": "function",
+      "name": "getTitle",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setIcon": {
+      "type": "function",
+      "name": "setIcon",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "setPopup": {
+      "type": "function",
+      "name": "setPopup",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "getPopup": {
+      "type": "function",
+      "name": "getPopup",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "pageCapture": {
+    "saveAsMHTML": {
+      "type": "function",
+      "name": "saveAsMHTML",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "permissions": {
+    "onAdded": {
+      "type": "event",
+      "name": "onAdded",
+      "parameters": [
+        {
+          "name": "permissions",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onRemoved": {
+      "type": "event",
+      "name": "onRemoved",
+      "parameters": [
+        {
+          "name": "permissions",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "contains": {
+      "type": "function",
+      "name": "contains",
+      "parameters": [
+        {
+          "name": "permissions",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "request": {
+      "type": "function",
+      "name": "request",
+      "parameters": [
+        {
+          "name": "permissions",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "permissions",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "power": {
+    "requestKeepAwake": {
+      "type": "function",
+      "name": "requestKeepAwake",
+      "parameters": [
+        {
+          "name": "level",
+          "optional": false,
+          "length": 0
+        }
+      ]
+    },
+    "releaseKeepAwake": {
+      "type": "function",
+      "name": "releaseKeepAwake",
+      "parameters": []
+    }
+  },
+  "printerProvider": {
+    "onGetPrintersRequested": {
+      "type": "event",
+      "name": "onGetPrintersRequested",
+      "parameters": [
+        {
+          "name": "resultCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onGetUsbPrinterInfoRequested": {
+      "type": "event",
+      "name": "onGetUsbPrinterInfoRequested",
+      "parameters": [
+        {
+          "name": "device",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "resultCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onGetCapabilityRequested": {
+      "type": "event",
+      "name": "onGetCapabilityRequested",
+      "parameters": [
+        {
+          "name": "printerId",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "resultCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onPrintRequested": {
+      "type": "event",
+      "name": "onPrintRequested",
+      "parameters": [
+        {
+          "name": "printJob",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "resultCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    }
+  },
+  "privacy": {
+    "network": {
+      "type": "property",
+      "name": "network",
+      "value": {}
+    },
+    "services": {
+      "type": "property",
+      "name": "services",
+      "value": {}
+    },
+    "websites": {
+      "type": "property",
+      "name": "websites",
+      "value": {}
+    }
+  },
+  "proxy": {
+    "onProxyError": {
+      "type": "event",
+      "name": "onProxyError",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "settings": {
+      "type": "property",
+      "name": "settings",
+      "value": [
+        "proxy",
+        {
+          "$ref": "ProxyConfig"
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "onStartup": {
+      "type": "event",
+      "name": "onStartup",
+      "parameters": [],
+      "rules": false
+    },
+    "onInstalled": {
+      "type": "event",
+      "name": "onInstalled",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onSuspend": {
+      "type": "event",
+      "name": "onSuspend",
+      "parameters": [],
+      "rules": false
+    },
+    "onSuspendCanceled": {
+      "type": "event",
+      "name": "onSuspendCanceled",
+      "parameters": [],
+      "rules": false
+    },
+    "onUpdateAvailable": {
+      "type": "event",
+      "name": "onUpdateAvailable",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onBrowserUpdateAvailable": {
+      "type": "event",
+      "name": "onBrowserUpdateAvailable",
+      "deprecated": "Please use $(ref:runtime.onRestartRequired).",
+      "parameters": [],
+      "rules": false
+    },
+    "onConnect": {
+      "type": "event",
+      "name": "onConnect",
+      "parameters": [
+        {
+          "name": "port",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onConnectExternal": {
+      "type": "event",
+      "name": "onConnectExternal",
+      "parameters": [
+        {
+          "name": "port",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onMessage": {
+      "type": "event",
+      "name": "onMessage",
+      "parameters": [
+        {
+          "name": "message",
+          "optional": true,
+          "parameters": 0,
+          "type": "any"
+        },
+        {
+          "name": "sender",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "sendResponse",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onMessageExternal": {
+      "type": "event",
+      "name": "onMessageExternal",
+      "parameters": [
+        {
+          "name": "message",
+          "optional": true,
+          "parameters": 0,
+          "type": "any"
+        },
+        {
+          "name": "sender",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "sendResponse",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onRestartRequired": {
+      "type": "event",
+      "name": "onRestartRequired",
+      "parameters": [
+        {
+          "name": "reason",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "getBackgroundPage": {
+      "type": "function",
+      "name": "getBackgroundPage",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "openOptionsPage": {
+      "type": "function",
+      "name": "openOptionsPage",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getManifest": {
+      "type": "function",
+      "name": "getManifest",
+      "parameters": []
+    },
+    "getURL": {
+      "type": "function",
+      "name": "getURL",
+      "parameters": [
+        {
+          "name": "path",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        }
+      ]
+    },
+    "setUninstallURL": {
+      "type": "function",
+      "name": "setUninstallURL",
+      "parameters": [
+        {
+          "name": "url",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "reload": {
+      "type": "function",
+      "name": "reload",
+      "parameters": []
+    },
+    "requestUpdateCheck": {
+      "type": "function",
+      "name": "requestUpdateCheck",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 2,
+          "type": "function"
+        }
+      ]
+    },
+    "restart": {
+      "type": "function",
+      "name": "restart",
+      "parameters": []
+    },
+    "restartAfterDelay": {
+      "type": "function",
+      "name": "restartAfterDelay",
+      "parameters": [
+        {
+          "name": "seconds",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "connect": {
+      "type": "function",
+      "name": "connect",
+      "parameters": [
+        {
+          "name": "extensionId",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "connectInfo",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "connectNative": {
+      "type": "function",
+      "name": "connectNative",
+      "parameters": [
+        {
+          "name": "application",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        }
+      ]
+    },
+    "sendMessage": {
+      "type": "function",
+      "name": "sendMessage",
+      "parameters": [
+        {
+          "name": "extensionId",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "optional": false,
+          "length": 0,
+          "type": "any"
+        },
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "responseCallback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "sendNativeMessage": {
+      "type": "function",
+      "name": "sendNativeMessage",
+      "parameters": [
+        {
+          "name": "application",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "responseCallback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getPlatformInfo": {
+      "type": "function",
+      "name": "getPlatformInfo",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getPackageDirectoryEntry": {
+      "type": "function",
+      "name": "getPackageDirectoryEntry",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "id": {
+      "type": "property",
+      "name": "id"
+    },
+    "lastError": {
+      "type": "property",
+      "name": "lastError"
+    }
+  },
+  "sessions": {
+    "onChanged": {
+      "type": "event",
+      "name": "onChanged",
+      "parameters": [],
+      "rules": false
+    },
+    "getRecentlyClosed": {
+      "type": "function",
+      "name": "getRecentlyClosed",
+      "parameters": [
+        {
+          "name": "filter",
+          "optional": true,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getDevices": {
+      "type": "function",
+      "name": "getDevices",
+      "parameters": [
+        {
+          "name": "filter",
+          "optional": true,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "restore": {
+      "type": "function",
+      "name": "restore",
+      "parameters": [
+        {
+          "name": "sessionId",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "MAX_SESSION_RESULTS": {
+      "type": "property",
+      "name": "MAX_SESSION_RESULTS",
+      "value": 25
+    }
+  },
+  "storage": {
+    "onChanged": {
+      "type": "event",
+      "name": "onChanged",
+      "parameters": [
+        {
+          "name": "changes",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        },
+        {
+          "name": "areaName",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "local": {
+      "type": "property",
+      "name": "local",
+      "value": [
+        "local"
+      ]
+    },
+    "managed": {
+      "type": "property",
+      "name": "managed",
+      "value": [
+        "managed"
+      ]
+    },
+    "sync": {
+      "type": "property",
+      "name": "sync",
+      "value": [
+        "sync"
+      ]
+    }
+  },
+  "system": {
+    "cpu": {
+      "getInfo": {
+        "type": "function",
+        "name": "getInfo",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      }
+    },
+    "memory": {
+      "getInfo": {
+        "type": "function",
+        "name": "getInfo",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      }
+    },
+    "storage": {
+      "onAttached": {
+        "type": "event",
+        "name": "onAttached",
+        "parameters": [
+          {
+            "name": "info",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onDetached": {
+        "type": "event",
+        "name": "onDetached",
+        "parameters": [
+          {
+            "name": "id",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          }
+        ],
+        "rules": false
+      },
+      "getInfo": {
+        "type": "function",
+        "name": "getInfo",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "ejectDevice": {
+        "type": "function",
+        "name": "ejectDevice",
+        "parameters": [
+          {
+            "name": "id",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "getAvailableCapacity": {
+        "type": "function",
+        "name": "getAvailableCapacity",
+        "parameters": [
+          {
+            "name": "id",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      }
+    }
+  },
+  "tabCapture": {
+    "onStatusChanged": {
+      "type": "event",
+      "name": "onStatusChanged",
+      "parameters": [
+        {
+          "name": "info",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "capture": {
+      "type": "function",
+      "name": "capture",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getCapturedTabs": {
+      "type": "function",
+      "name": "getCapturedTabs",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "captureOffscreenTab": {
+      "type": "function",
+      "name": "captureOffscreenTab",
+      "parameters": [
+        {
+          "name": "startUrl",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "tabs": {
+    "onCreated": {
+      "type": "event",
+      "name": "onCreated",
+      "parameters": [
+        {
+          "name": "tab",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onUpdated": {
+      "type": "event",
+      "name": "onUpdated",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "changeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        },
+        {
+          "name": "tab",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onMoved": {
+      "type": "event",
+      "name": "onMoved",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "moveInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onSelectionChanged": {
+      "type": "event",
+      "name": "onSelectionChanged",
+      "deprecated": "Please use $(ref:tabs.onActivated).",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "selectInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onActiveChanged": {
+      "type": "event",
+      "name": "onActiveChanged",
+      "deprecated": "Please use $(ref:tabs.onActivated).",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "selectInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onActivated": {
+      "type": "event",
+      "name": "onActivated",
+      "parameters": [
+        {
+          "name": "activeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onHighlightChanged": {
+      "type": "event",
+      "name": "onHighlightChanged",
+      "deprecated": "Please use $(ref:tabs.onHighlighted).",
+      "parameters": [
+        {
+          "name": "selectInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onHighlighted": {
+      "type": "event",
+      "name": "onHighlighted",
+      "parameters": [
+        {
+          "name": "highlightInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onDetached": {
+      "type": "event",
+      "name": "onDetached",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "detachInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onAttached": {
+      "type": "event",
+      "name": "onAttached",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "attachInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onRemoved": {
+      "type": "event",
+      "name": "onRemoved",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "removeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onReplaced": {
+      "type": "event",
+      "name": "onReplaced",
+      "parameters": [
+        {
+          "name": "addedTabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        },
+        {
+          "name": "removedTabId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        }
+      ],
+      "rules": false
+    },
+    "onZoomChange": {
+      "type": "event",
+      "name": "onZoomChange",
+      "parameters": [
+        {
+          "name": "ZoomChangeInfo",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getCurrent": {
+      "type": "function",
+      "name": "getCurrent",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "connect": {
+      "type": "function",
+      "name": "connect",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "connectInfo",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        }
+      ]
+    },
+    "sendRequest": {
+      "type": "function",
+      "name": "sendRequest",
+      "deprecated": "Please use $(ref:runtime.sendMessage).",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "request",
+          "optional": false,
+          "length": 0,
+          "type": "any"
+        },
+        {
+          "name": "responseCallback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "sendMessage": {
+      "type": "function",
+      "name": "sendMessage",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "message",
+          "optional": false,
+          "length": 0,
+          "type": "any"
+        },
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "responseCallback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getSelected": {
+      "type": "function",
+      "name": "getSelected",
+      "deprecated": "Please use $(ref:tabs.query) <code>{active: true}</code>.",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAllInWindow": {
+      "type": "function",
+      "name": "getAllInWindow",
+      "deprecated": "Please use $(ref:tabs.query) <code>{windowId: windowId}</code>.",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "create": {
+      "type": "function",
+      "name": "create",
+      "parameters": [
+        {
+          "name": "createProperties",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "duplicate": {
+      "type": "function",
+      "name": "duplicate",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "query": {
+      "type": "function",
+      "name": "query",
+      "parameters": [
+        {
+          "name": "queryInfo",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "highlight": {
+      "type": "function",
+      "name": "highlight",
+      "parameters": [
+        {
+          "name": "highlightInfo",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "update": {
+      "type": "function",
+      "name": "update",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "updateProperties",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "move": {
+      "type": "function",
+      "name": "move",
+      "parameters": [
+        {
+          "name": "tabIds",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "moveProperties",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "reload": {
+      "type": "function",
+      "name": "reload",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "reloadProperties",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "tabIds",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "detectLanguage": {
+      "type": "function",
+      "name": "detectLanguage",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "captureVisibleTab": {
+      "type": "function",
+      "name": "captureVisibleTab",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "executeScript": {
+      "type": "function",
+      "name": "executeScript",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "insertCSS": {
+      "type": "function",
+      "name": "insertCSS",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "setZoom": {
+      "type": "function",
+      "name": "setZoom",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "zoomFactor",
+          "optional": false,
+          "length": 0,
+          "type": "number"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getZoom": {
+      "type": "function",
+      "name": "getZoom",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "setZoomSettings": {
+      "type": "function",
+      "name": "setZoomSettings",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "zoomSettings",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getZoomSettings": {
+      "type": "function",
+      "name": "getZoomSettings",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "discard": {
+      "type": "function",
+      "name": "discard",
+      "parameters": [
+        {
+          "name": "tabId",
+          "optional": true,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "TAB_ID_NONE": {
+      "type": "property",
+      "name": "TAB_ID_NONE",
+      "value": -1
+    }
+  },
+  "topSites": {
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "tts": {
+    "onEvent": {
+      "type": "event",
+      "name": "onEvent",
+      "parameters": [
+        {
+          "name": "event",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "speak": {
+      "type": "function",
+      "name": "speak",
+      "parameters": [
+        {
+          "name": "utterance",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "stop": {
+      "type": "function",
+      "name": "stop",
+      "parameters": []
+    },
+    "pause": {
+      "type": "function",
+      "name": "pause",
+      "parameters": []
+    },
+    "resume": {
+      "type": "function",
+      "name": "resume",
+      "parameters": []
+    },
+    "isSpeaking": {
+      "type": "function",
+      "name": "isSpeaking",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getVoices": {
+      "type": "function",
+      "name": "getVoices",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "ttsEngine": {
+    "onSpeak": {
+      "type": "event",
+      "name": "onSpeak",
+      "parameters": [
+        {
+          "name": "utterance",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        },
+        {
+          "name": "sendTtsEvent",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onStop": {
+      "type": "event",
+      "name": "onStop",
+      "parameters": [],
+      "rules": false
+    },
+    "onPause": {
+      "type": "event",
+      "name": "onPause",
+      "parameters": [],
+      "rules": false
+    },
+    "onResume": {
+      "type": "event",
+      "name": "onResume",
+      "parameters": [],
+      "rules": false
+    },
+    "sendTtsEvent": {
+      "type": "function",
+      "name": "sendTtsEvent",
+      "parameters": [
+        {
+          "name": "requestId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "event",
+          "optional": false,
+          "length": 0
+        }
+      ]
+    }
+  },
+  "types": {},
+  "webNavigation": {
+    "onBeforeNavigate": {
+      "type": "event",
+      "name": "onBeforeNavigate",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onCommitted": {
+      "type": "event",
+      "name": "onCommitted",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onDOMContentLoaded": {
+      "type": "event",
+      "name": "onDOMContentLoaded",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onCompleted": {
+      "type": "event",
+      "name": "onCompleted",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onErrorOccurred": {
+      "type": "event",
+      "name": "onErrorOccurred",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onCreatedNavigationTarget": {
+      "type": "event",
+      "name": "onCreatedNavigationTarget",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onReferenceFragmentUpdated": {
+      "type": "event",
+      "name": "onReferenceFragmentUpdated",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onTabReplaced": {
+      "type": "event",
+      "name": "onTabReplaced",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onHistoryStateUpdated": {
+      "type": "event",
+      "name": "onHistoryStateUpdated",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "getFrame": {
+      "type": "function",
+      "name": "getFrame",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAllFrames": {
+      "type": "function",
+      "name": "getAllFrames",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "webRequest": {
+    "onBeforeRequest": {
+      "type": "event",
+      "name": "onBeforeRequest",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onBeforeSendHeaders": {
+      "type": "event",
+      "name": "onBeforeSendHeaders",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onSendHeaders": {
+      "type": "event",
+      "name": "onSendHeaders",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onHeadersReceived": {
+      "type": "event",
+      "name": "onHeadersReceived",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onAuthRequired": {
+      "type": "event",
+      "name": "onAuthRequired",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onResponseStarted": {
+      "type": "event",
+      "name": "onResponseStarted",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onBeforeRedirect": {
+      "type": "event",
+      "name": "onBeforeRedirect",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onCompleted": {
+      "type": "event",
+      "name": "onCompleted",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onErrorOccurred": {
+      "type": "event",
+      "name": "onErrorOccurred",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "handlerBehaviorChanged": {
+      "type": "function",
+      "name": "handlerBehaviorChanged",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES": {
+      "type": "property",
+      "name": "MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES",
+      "value": 20
+    }
+  },
+  "webstore": {
+    "onInstallStageChanged": {
+      "type": "event",
+      "name": "onInstallStageChanged",
+      "parameters": [
+        {
+          "name": "stage",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onDownloadProgress": {
+      "type": "event",
+      "name": "onDownloadProgress",
+      "parameters": [
+        {
+          "name": "percentDownloaded",
+          "optional": false,
+          "parameters": 0,
+          "type": "number"
+        }
+      ],
+      "rules": false
+    },
+    "install": {
+      "type": "function",
+      "name": "install",
+      "parameters": [
+        {
+          "name": "url",
+          "optional": true,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "successCallback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        },
+        {
+          "name": "failureCallback",
+          "optional": true,
+          "length": 2,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "windows": {
+    "onCreated": {
+      "type": "event",
+      "name": "onCreated",
+      "parameters": [
+        {
+          "name": "window",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onRemoved": {
+      "type": "event",
+      "name": "onRemoved",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        }
+      ],
+      "rules": false
+    },
+    "onFocusChanged": {
+      "type": "event",
+      "name": "onFocusChanged",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": false,
+          "parameters": 0,
+          "type": "integer"
+        }
+      ],
+      "rules": false
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "getInfo",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getCurrent": {
+      "type": "function",
+      "name": "getCurrent",
+      "parameters": [
+        {
+          "name": "getInfo",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getLastFocused": {
+      "type": "function",
+      "name": "getLastFocused",
+      "parameters": [
+        {
+          "name": "getInfo",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "getInfo",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "create": {
+      "type": "function",
+      "name": "create",
+      "parameters": [
+        {
+          "name": "createData",
+          "optional": true,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "update": {
+      "type": "function",
+      "name": "update",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "updateInfo",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "remove": {
+      "type": "function",
+      "name": "remove",
+      "parameters": [
+        {
+          "name": "windowId",
+          "optional": false,
+          "length": 0,
+          "type": "integer"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "WINDOW_ID_CURRENT": {
+      "type": "property",
+      "name": "WINDOW_ID_CURRENT",
+      "value": -2
+    },
+    "WINDOW_ID_NONE": {
+      "type": "property",
+      "name": "WINDOW_ID_NONE",
+      "value": -1
+    }
+  },
+  "accessibilityFeatures": {
+    "animationPolicy": {
+      "type": "property",
+      "name": "animationPolicy",
+      "value": [
+        "animationPolicy",
+        {
+          "enum": [
+            {
+              "description": "Images are allowed to animate.",
+              "name": "allowed"
+            },
+            {
+              "description": "Images are animated once.",
+              "name": "once"
+            },
+            {
+              "description": "Images are not animated.",
+              "name": "none"
+            }
+          ],
+          "type": "string"
+        }
+      ]
+    },
+    "autoclick": {
+      "type": "property",
+      "name": "autoclick",
+      "value": [
+        "autoclick",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "caretHighlight": {
+      "type": "property",
+      "name": "caretHighlight",
+      "value": [
+        "caretHighlight",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "cursorHighlight": {
+      "type": "property",
+      "name": "cursorHighlight",
+      "value": [
+        "cursorHighlight",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "focusHighlight": {
+      "type": "property",
+      "name": "focusHighlight",
+      "value": [
+        "focusHighlight",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "highContrast": {
+      "type": "property",
+      "name": "highContrast",
+      "value": [
+        "highContrast",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "largeCursor": {
+      "type": "property",
+      "name": "largeCursor",
+      "value": [
+        "largeCursor",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "screenMagnifier": {
+      "type": "property",
+      "name": "screenMagnifier",
+      "value": [
+        "screenMagnifier",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "selectToSpeak": {
+      "type": "property",
+      "name": "selectToSpeak",
+      "value": [
+        "selectToSpeak",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "spokenFeedback": {
+      "type": "property",
+      "name": "spokenFeedback",
+      "value": [
+        "spokenFeedback",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "stickyKeys": {
+      "type": "property",
+      "name": "stickyKeys",
+      "value": [
+        "stickyKeys",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "switchAccess": {
+      "type": "property",
+      "name": "switchAccess",
+      "value": [
+        "switchAccess",
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "virtualKeyboard": {
+      "type": "property",
+      "name": "virtualKeyboard",
+      "value": [
+        "virtualKeyboard",
+        {
+          "type": "boolean"
+        }
+      ]
+    }
+  },
+  "certificateProvider": {
+    "onCertificatesRequested": {
+      "type": "event",
+      "name": "onCertificatesRequested",
+      "parameters": [
+        {
+          "name": "reportCallback",
+          "optional": false,
+          "parameters": 2,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onSignDigestRequested": {
+      "type": "event",
+      "name": "onSignDigestRequested",
+      "parameters": [
+        {
+          "name": "request",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "reportCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    }
+  },
+  "documentScan": {
+    "scan": {
+      "type": "function",
+      "name": "scan",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "enterprise": {
+    "deviceAttributes": {
+      "getDirectoryDeviceId": {
+        "type": "function",
+        "name": "getDirectoryDeviceId",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      }
+    },
+    "platformKeys": {
+      "getTokens": {
+        "type": "function",
+        "name": "getTokens",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "getCertificates": {
+        "type": "function",
+        "name": "getCertificates",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "importCertificate": {
+        "type": "function",
+        "name": "importCertificate",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "certificate",
+            "optional": false,
+            "length": 0
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "removeCertificate": {
+        "type": "function",
+        "name": "removeCertificate",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "certificate",
+            "optional": false,
+            "length": 0
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "challengeMachineKey": {
+        "type": "function",
+        "name": "challengeMachineKey",
+        "parameters": [
+          {
+            "name": "challenge",
+            "optional": false,
+            "length": 0
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "challengeUserKey": {
+        "type": "function",
+        "name": "challengeUserKey",
+        "parameters": [
+          {
+            "name": "challenge",
+            "optional": false,
+            "length": 0
+          },
+          {
+            "name": "registerKey",
+            "optional": false,
+            "length": 0,
+            "type": "boolean"
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      }
+    }
+  },
+  "fileBrowserHandler": {
+    "onExecute": {
+      "type": "event",
+      "name": "onExecute",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "details",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "selectFile": {
+      "type": "function",
+      "name": "selectFile",
+      "parameters": [
+        {
+          "name": "selectionParams",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "fileSystemProvider": {
+    "onUnmountRequested": {
+      "type": "event",
+      "name": "onUnmountRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onGetMetadataRequested": {
+      "type": "event",
+      "name": "onGetMetadataRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onGetActionsRequested": {
+      "type": "event",
+      "name": "onGetActionsRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onReadDirectoryRequested": {
+      "type": "event",
+      "name": "onReadDirectoryRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 2,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onOpenFileRequested": {
+      "type": "event",
+      "name": "onOpenFileRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onCloseFileRequested": {
+      "type": "event",
+      "name": "onCloseFileRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onReadFileRequested": {
+      "type": "event",
+      "name": "onReadFileRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 2,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onCreateDirectoryRequested": {
+      "type": "event",
+      "name": "onCreateDirectoryRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onDeleteEntryRequested": {
+      "type": "event",
+      "name": "onDeleteEntryRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onCreateFileRequested": {
+      "type": "event",
+      "name": "onCreateFileRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onCopyEntryRequested": {
+      "type": "event",
+      "name": "onCopyEntryRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onMoveEntryRequested": {
+      "type": "event",
+      "name": "onMoveEntryRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onTruncateRequested": {
+      "type": "event",
+      "name": "onTruncateRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onWriteFileRequested": {
+      "type": "event",
+      "name": "onWriteFileRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onAbortRequested": {
+      "type": "event",
+      "name": "onAbortRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onConfigureRequested": {
+      "type": "event",
+      "name": "onConfigureRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onMountRequested": {
+      "type": "event",
+      "name": "onMountRequested",
+      "parameters": [
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onAddWatcherRequested": {
+      "type": "event",
+      "name": "onAddWatcherRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onRemoveWatcherRequested": {
+      "type": "event",
+      "name": "onRemoveWatcherRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "onExecuteActionRequested": {
+      "type": "event",
+      "name": "onExecuteActionRequested",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "successCallback",
+          "optional": false,
+          "parameters": 0,
+          "type": "function"
+        },
+        {
+          "name": "errorCallback",
+          "optional": false,
+          "parameters": 1,
+          "type": "function"
+        }
+      ],
+      "rules": false
+    },
+    "mount": {
+      "type": "function",
+      "name": "mount",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "unmount": {
+      "type": "function",
+      "name": "unmount",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "getAll": {
+      "type": "function",
+      "name": "getAll",
+      "parameters": [
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "get": {
+      "type": "function",
+      "name": "get",
+      "parameters": [
+        {
+          "name": "fileSystemId",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "notify": {
+      "type": "function",
+      "name": "notify",
+      "parameters": [
+        {
+          "name": "options",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "input": {
+    "ime": {
+      "onActivate": {
+        "type": "event",
+        "name": "onActivate",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          },
+          {
+            "name": "screen",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onDeactivated": {
+        "type": "event",
+        "name": "onDeactivated",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          }
+        ],
+        "rules": false
+      },
+      "onFocus": {
+        "type": "event",
+        "name": "onFocus",
+        "parameters": [
+          {
+            "name": "context",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onBlur": {
+        "type": "event",
+        "name": "onBlur",
+        "parameters": [
+          {
+            "name": "contextID",
+            "optional": false,
+            "parameters": 0,
+            "type": "integer"
+          }
+        ],
+        "rules": false
+      },
+      "onInputContextUpdate": {
+        "type": "event",
+        "name": "onInputContextUpdate",
+        "parameters": [
+          {
+            "name": "context",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onKeyEvent": {
+        "type": "event",
+        "name": "onKeyEvent",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          },
+          {
+            "name": "keyData",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onCandidateClicked": {
+        "type": "event",
+        "name": "onCandidateClicked",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          },
+          {
+            "name": "candidateID",
+            "optional": false,
+            "parameters": 0,
+            "type": "integer"
+          },
+          {
+            "name": "button",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "onMenuItemActivated": {
+        "type": "event",
+        "name": "onMenuItemActivated",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          }
+        ],
+        "rules": false
+      },
+      "onSurroundingTextChanged": {
+        "type": "event",
+        "name": "onSurroundingTextChanged",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          },
+          {
+            "name": "surroundingInfo",
+            "optional": false,
+            "parameters": 0,
+            "type": "object"
+          }
+        ],
+        "rules": false
+      },
+      "onReset": {
+        "type": "event",
+        "name": "onReset",
+        "parameters": [
+          {
+            "name": "engineID",
+            "optional": false,
+            "parameters": 0,
+            "type": "string"
+          }
+        ],
+        "rules": false
+      },
+      "onCompositionBoundsChanged": {
+        "type": "event",
+        "name": "onCompositionBoundsChanged",
+        "parameters": [
+          {
+            "name": "boundsList",
+            "optional": false,
+            "parameters": 0,
+            "type": "array"
+          }
+        ],
+        "rules": false
+      },
+      "setComposition": {
+        "type": "function",
+        "name": "setComposition",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "clearComposition": {
+        "type": "function",
+        "name": "clearComposition",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "commitText": {
+        "type": "function",
+        "name": "commitText",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "sendKeyEvents": {
+        "type": "function",
+        "name": "sendKeyEvents",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "hideInputView": {
+        "type": "function",
+        "name": "hideInputView",
+        "parameters": []
+      },
+      "setCandidateWindowProperties": {
+        "type": "function",
+        "name": "setCandidateWindowProperties",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "setCandidates": {
+        "type": "function",
+        "name": "setCandidates",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "setCursorPosition": {
+        "type": "function",
+        "name": "setCursorPosition",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "setMenuItems": {
+        "type": "function",
+        "name": "setMenuItems",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "updateMenuItems": {
+        "type": "function",
+        "name": "updateMenuItems",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "deleteSurroundingText": {
+        "type": "function",
+        "name": "deleteSurroundingText",
+        "parameters": [
+          {
+            "name": "parameters",
+            "optional": false,
+            "length": 0,
+            "type": "object"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "keyEventHandled": {
+        "type": "function",
+        "name": "keyEventHandled",
+        "parameters": [
+          {
+            "name": "requestId",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "response",
+            "optional": false,
+            "length": 0,
+            "type": "boolean"
+          }
+        ]
+      },
+      "createWindow": {
+        "type": "function",
+        "name": "createWindow",
+        "parameters": [
+          {
+            "name": "options",
+            "optional": false,
+            "length": 0
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 1,
+            "type": "function"
+          }
+        ]
+      },
+      "showWindow": {
+        "type": "function",
+        "name": "showWindow",
+        "parameters": [
+          {
+            "name": "windowId",
+            "optional": false,
+            "length": 0,
+            "type": "integer"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "hideWindow": {
+        "type": "function",
+        "name": "hideWindow",
+        "parameters": [
+          {
+            "name": "windowId",
+            "optional": false,
+            "length": 0,
+            "type": "integer"
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "activate": {
+        "type": "function",
+        "name": "activate",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "deactivate": {
+        "type": "function",
+        "name": "deactivate",
+        "parameters": [
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      }
+    }
+  },
+  "networking": {
+    "config": {
+      "onCaptivePortalDetected": {
+        "type": "event",
+        "name": "onCaptivePortalDetected",
+        "parameters": [
+          {
+            "name": "networkInfo",
+            "optional": false,
+            "parameters": 0
+          }
+        ],
+        "rules": false
+      },
+      "setNetworkFilter": {
+        "type": "function",
+        "name": "setNetworkFilter",
+        "parameters": [
+          {
+            "name": "networks",
+            "optional": false,
+            "length": 0,
+            "type": "array"
+          },
+          {
+            "name": "callback",
+            "optional": false,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      },
+      "finishAuthentication": {
+        "type": "function",
+        "name": "finishAuthentication",
+        "parameters": [
+          {
+            "name": "GUID",
+            "optional": false,
+            "length": 0,
+            "type": "string"
+          },
+          {
+            "name": "result",
+            "optional": false,
+            "length": 0
+          },
+          {
+            "name": "callback",
+            "optional": true,
+            "length": 0,
+            "type": "function"
+          }
+        ]
+      }
+    }
+  },
+  "platformKeys": {
+    "selectClientCertificates": {
+      "type": "function",
+      "name": "selectClientCertificates",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "getKeyPair": {
+      "type": "function",
+      "name": "getKeyPair",
+      "parameters": [
+        {
+          "name": "certificate",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "parameters",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 2,
+          "type": "function"
+        }
+      ]
+    },
+    "subtleCrypto": {
+      "type": "function",
+      "name": "subtleCrypto",
+      "parameters": []
+    },
+    "verifyTLSServerCertificate": {
+      "type": "function",
+      "name": "verifyTLSServerCertificate",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "vpnProvider": {
+    "onPlatformMessage": {
+      "type": "event",
+      "name": "onPlatformMessage",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "error",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "onPacketReceived": {
+      "type": "event",
+      "name": "onPacketReceived",
+      "parameters": [
+        {
+          "name": "data",
+          "optional": false,
+          "parameters": 0
+        }
+      ],
+      "rules": false
+    },
+    "onConfigRemoved": {
+      "type": "event",
+      "name": "onConfigRemoved",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "onConfigCreated": {
+      "type": "event",
+      "name": "onConfigCreated",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "optional": false,
+          "parameters": 0,
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "optional": false,
+          "parameters": 0,
+          "type": "object"
+        }
+      ],
+      "rules": false
+    },
+    "onUIEvent": {
+      "type": "event",
+      "name": "onUIEvent",
+      "parameters": [
+        {
+          "name": "event",
+          "optional": false,
+          "parameters": 0
+        },
+        {
+          "name": "id",
+          "optional": true,
+          "parameters": 0,
+          "type": "string"
+        }
+      ],
+      "rules": false
+    },
+    "createConfig": {
+      "type": "function",
+      "name": "createConfig",
+      "parameters": [
+        {
+          "name": "name",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    },
+    "destroyConfig": {
+      "type": "function",
+      "name": "destroyConfig",
+      "parameters": [
+        {
+          "name": "id",
+          "optional": false,
+          "length": 0,
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "setParameters": {
+      "type": "function",
+      "name": "setParameters",
+      "parameters": [
+        {
+          "name": "parameters",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "sendPacket": {
+      "type": "function",
+      "name": "sendPacket",
+      "parameters": [
+        {
+          "name": "data",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    },
+    "notifyConnectionStateChanged": {
+      "type": "function",
+      "name": "notifyConnectionStateChanged",
+      "parameters": [
+        {
+          "name": "state",
+          "optional": false,
+          "length": 0
+        },
+        {
+          "name": "callback",
+          "optional": true,
+          "length": 0,
+          "type": "function"
+        }
+      ]
+    }
+  },
+  "wallpaper": {
+    "setWallpaper": {
+      "type": "function",
+      "name": "setWallpaper",
+      "parameters": [
+        {
+          "name": "details",
+          "optional": false,
+          "length": 0,
+          "type": "object"
+        },
+        {
+          "name": "callback",
+          "optional": false,
+          "length": 1,
+          "type": "function"
+        }
+      ]
+    }
+  }
+}
