@@ -9,7 +9,8 @@
     "extension",
     "jest",
     "mock",
-    "test"
+    "test",
+    "typescript"
   ],
   "repository": "bumble-org/jest-chrome",
   "license": "MIT",
