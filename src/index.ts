@@ -17,6 +17,22 @@ export function createHandler(
   schema = jestChromeSchema as any,
 ): ProxyHandler<JestChrome> {
   return {
+    ownKeys() {
+      return Reflect.ownKeys(schema)
+    },
+    getOwnPropertyDescriptor(target, prop) {
+      if (prop in schema) {
+        return {
+          enumerable: true,
+          configurable: true,
+        }
+      } else {
+        return {
+          enumerable: false,
+          configurable: false,
+        }
+      }
+    },
     get(target, key) {
       if (key in target) {
         return Reflect.get(target, key)

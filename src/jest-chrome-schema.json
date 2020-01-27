@@ -4166,23 +4166,17 @@
     "local": {
       "type": "property",
       "name": "local",
-      "value": [
-        "local"
-      ]
+      "value": "%storage%"
     },
     "managed": {
       "type": "property",
       "name": "managed",
-      "value": [
-        "managed"
-      ]
+      "value": "%storage%"
     },
     "sync": {
       "type": "property",
       "name": "sync",
-      "value": [
-        "sync"
-      ]
+      "value": "%storage%"
     }
   },
   "system": {

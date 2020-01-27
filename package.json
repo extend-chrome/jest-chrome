@@ -39,7 +39,6 @@
     "@bumble/chrome-rxjs": "^0.10.1",
     "@bumble/timeout": "^0.1.0",
     "@types/chrome": "^0.0.92",
-    "chrome-promise": "^3.0.5",
     "rxjs": "^6.5.4"
   },
   "devDependencies": {

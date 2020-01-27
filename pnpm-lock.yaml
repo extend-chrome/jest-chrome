@@ -2,7 +2,6 @@ dependencies:
   '@bumble/chrome-rxjs': 0.10.1
   '@bumble/timeout': 0.1.0
   '@types/chrome': 0.0.92
-  chrome-promise: 3.0.5
   rxjs: 6.5.4
 devDependencies:
   '@rollup/plugin-commonjs': 11.0.1_rollup@1.29.0
@@ -20,6 +19,7 @@ devDependencies:
   '@types/puppeteer': 2.0.0
   '@typescript-eslint/eslint-plugin': 2.16.0_a539a7c03a3cd273ce58bf2cbe602e38
   '@typescript-eslint/parser': 2.16.0_eslint@6.8.0+typescript@3.7.4
+  chrome-promise: 3.0.5
   copyfiles: 2.2.0
   delay: 4.3.0
   eslint: 6.8.0
@@ -1037,7 +1037,7 @@ packages:
     resolution:
       integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
   /chrome-promise/3.0.5:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-ekIevrJOO5S6ezSzl5TdaLhlQkovY5nVaNSgA2XyhuNtlGniUvTbf7rzH95alh1OajArwoP2xVGYUJbpVLmZYA==
   /ci-info/2.0.0:

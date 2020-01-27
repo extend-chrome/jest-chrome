@@ -1,4 +1,5 @@
 import { createEvent } from './create-event'
+import { Storage } from './jest-chrome'
 
 /**
  * Namespace member data format from jest-chrome-schema.json
@@ -24,13 +25,9 @@ interface SchemaData<
 }
 
 export const addEvent = (
-  { name, parameters, deprecated }: SchemaData<'event'>,
+  { name, parameters }: SchemaData<'event'>,
   target: any,
 ) => {
-  if (deprecated) {
-    console.warn(deprecated)
-  }
-
   const event = createEvent((...args: any[]) => {
     if (args.length > parameters.length) {
       throw new Error(
@@ -38,10 +35,19 @@ export const addEvent = (
       )
     }
 
-    const types = ['boolean', 'number', 'string', 'function', 'object']
+    const types = [
+      'boolean',
+      'number',
+      'string',
+      'function',
+      'object',
+    ]
     args.forEach((arg, i) => {
       const param = parameters[i]
-      if (types.includes(param.type) && typeof arg !== param.type) {
+      if (
+        types.includes(param.type) &&
+        typeof arg !== param.type
+      ) {
         throw new TypeError(
           `Invalid argument for ${name}: (${param.name}) should be type "${param.type}"`,
         )
@@ -57,13 +63,9 @@ export const addEvent = (
 }
 
 export const addFunction = (
-  { name, deprecated }: SchemaData<'function'>,
+  { name }: SchemaData<'function'>,
   target: any,
 ) => {
-  if (deprecated) {
-    console.warn(deprecated)
-  }
-
   const fn = jest.fn()
   Object.assign(target, { [name]: fn })
 
@@ -71,15 +73,25 @@ export const addFunction = (
 }
 
 export const addProperty = (
-  { name, value = null, deprecated }: SchemaData<'property'>,
+  { name, value = null }: SchemaData<'property'>,
   target: any,
 ) => {
-  if (deprecated) {
-    console.warn(deprecated)
+  if (value === '%storage%') {
+    value = addStorageArea()
   }
-  
+
   // TODO: set property by type
   Object.assign(target, { [name]: value })
 
   return value
+}
+
+export function addStorageArea(): Storage.StorageArea {
+  return {
+    clear: jest.fn(),
+    get: jest.fn(),
+    getBytesInUse: jest.fn(),
+    remove: jest.fn(),
+    set: jest.fn(),
+  }
 }
