@@ -6,6 +6,7 @@ dependencies:
   rxjs: 6.5.4
 devDependencies:
   '@rollup/plugin-commonjs': 11.0.1_rollup@1.29.0
+  '@rollup/plugin-json': 4.0.1_rollup@1.29.0
   '@rollup/plugin-node-resolve': 7.0.0_rollup@1.29.0
   '@rollup/plugin-typescript': 2.1.0_c976401b919a0a150b6584796dd1444d
   '@sucrase/jest-plugin': 2.0.0
@@ -19,6 +20,7 @@ devDependencies:
   '@types/puppeteer': 2.0.0
   '@typescript-eslint/eslint-plugin': 2.16.0_a539a7c03a3cd273ce58bf2cbe602e38
   '@typescript-eslint/parser': 2.16.0_eslint@6.8.0+typescript@3.7.4
+  copyfiles: 2.2.0
   delay: 4.3.0
   eslint: 6.8.0
   eslint-plugin-jest: 23.6.0_eslint@6.8.0+typescript@3.7.4
@@ -352,6 +354,15 @@ packages:
       rollup: ^1.20.0
     resolution:
       integrity: sha512-SaVUoaLDg3KnIXC5IBNIspr1APTYDzk05VaYcI6qz+0XX3ZlSCwAkfAhNSOxfd5GAdcm/63Noi4TowOY9MpcDg==
+  /@rollup/plugin-json/4.0.1_rollup@1.29.0:
+    dependencies:
+      rollup: 1.29.0
+      rollup-pluginutils: 2.8.2
+    dev: true
+    peerDependencies:
+      rollup: ^1.20.0
+    resolution:
+      integrity: sha512-soxllkhOGgchswBAAaTe7X9G80U2tjjHvXv0sBrriLJcC/89PkP59iTrKPOfbz3SjX088mKDmMhAscuyLz8ZSg==
   /@rollup/plugin-node-resolve/7.0.0_rollup@1.29.0:
     dependencies:
       '@rollup/pluginutils': 3.0.3_rollup@1.29.0
@@ -1129,6 +1140,18 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+  /copyfiles/2.2.0:
+    dependencies:
+      glob: 7.1.6
+      minimatch: 3.0.4
+      mkdirp: 0.5.1
+      noms: 0.0.0
+      through2: 2.0.5
+      yargs: 13.3.0
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-iJbHJI+8OKqsq+4JF0rqgRkZzo++jqO6Wf4FUU1JM41cJF6JcY5968XyF4tm3Kkm7ZOMrqlljdm8N9oyY5raGw==
   /core-util-is/1.0.2:
     dev: true
     resolution:
@@ -2183,6 +2206,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
+  /isarray/0.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
   /isarray/1.0.0:
     dev: true
     resolution:
@@ -3058,6 +3085,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-M4UBGcs4jeOK9CjTsYwkvH6/MzuUmGCyTW+kCY7uO+1ZVr0+FHGdPdIf5CCLqAaxnRrWidyoQlNkMIIVwbKB8Q==
+  /noms/0.0.0:
+    dependencies:
+      inherits: 2.0.4
+      readable-stream: 1.0.34
+    dev: true
+    resolution:
+      integrity: sha1-2o69nzr51nYJGbJ9nNyAkqczKFk=
   /normalize-package-data/2.5.0:
     dependencies:
       hosted-git-info: 2.8.5
@@ -3388,6 +3422,10 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-00ZMZUiHaJrNfk33guavqgvfJS30sLYf0f8+Srklv0AMPodGGHcoHgksZ3OThYnIvOd+8yMCn0YiEOogjlgsnA==
+  /process-nextick-args/2.0.1:
+    dev: true
+    resolution:
+      integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
   /progress/2.0.3:
     dev: true
     engines:
@@ -3453,6 +3491,27 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-nLxoaXj+5l0WwA4rGcI3/Pbjg4k=
+  /readable-stream/1.0.34:
+    dependencies:
+      core-util-is: 1.0.2
+      inherits: 2.0.4
+      isarray: 0.0.1
+      string_decoder: 0.10.31
+    dev: true
+    resolution:
+      integrity: sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw=
+  /readable-stream/2.3.7:
+    dependencies:
+      core-util-is: 1.0.2
+      inherits: 2.0.4
+      isarray: 1.0.0
+      process-nextick-args: 2.0.1
+      safe-buffer: 5.1.2
+      string_decoder: 1.1.1
+      util-deprecate: 1.0.2
+    dev: true
+    resolution:
+      integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==
   /realpath-native/1.1.0:
     dependencies:
       util.promisify: 1.0.0
@@ -3622,6 +3681,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
+  /rollup-pluginutils/2.8.2:
+    dependencies:
+      estree-walker: 0.6.1
+    dev: true
+    resolution:
+      integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
   /rollup/1.29.0:
     dependencies:
       '@types/estree': 0.0.42
@@ -3960,6 +4025,16 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-qFvWL3/+QIgZXVmJBfpHmxLB7xsUXz6HsUmP8+5dRaC3Q7oKUv9Vo6aMCRZC1smrtyECFsIT30PqBJ1gTjAs+g==
+  /string_decoder/0.10.31:
+    dev: true
+    resolution:
+      integrity: sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
+  /string_decoder/1.1.1:
+    dependencies:
+      safe-buffer: 5.1.2
+    dev: true
+    resolution:
+      integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
   /strip-ansi/4.0.0:
     dependencies:
       ansi-regex: 3.0.0
@@ -4083,6 +4158,13 @@ packages:
     dev: true
     resolution:
       integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+  /through2/2.0.5:
+    dependencies:
+      readable-stream: 2.3.7
+      xtend: 4.0.2
+    dev: true
+    resolution:
+      integrity: sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==
   /tmp/0.0.33:
     dependencies:
       os-tmpdir: 1.0.2
@@ -4283,6 +4365,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+  /util-deprecate/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
   /util.promisify/1.0.0:
     dependencies:
       define-properties: 1.1.3
@@ -4421,6 +4507,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
+  /xtend/4.0.2:
+    dev: true
+    engines:
+      node: '>=0.4'
+    resolution:
+      integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
   /y18n/4.0.0:
     dev: true
     resolution:
@@ -4457,6 +4549,7 @@ specifiers:
   '@bumble/chrome-rxjs': ^0.10.1
   '@bumble/timeout': ^0.1.0
   '@rollup/plugin-commonjs': ^11.0.1
+  '@rollup/plugin-json': ^4.0.1
   '@rollup/plugin-node-resolve': ^7.0.0
   '@rollup/plugin-typescript': ^2.1.0
   '@sucrase/jest-plugin': ^2.0.0
@@ -4472,6 +4565,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^2.16.0
   '@typescript-eslint/parser': ^2.16.0
   chrome-promise: ^3.0.5
+  copyfiles: ^2.2.0
   delay: ^4.3.0
   eslint: ^6.8.0
   eslint-plugin-jest: ^23.6.0

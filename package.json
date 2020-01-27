@@ -1,32 +1,38 @@
 {
   "name": "@bumble/jest-chrome",
-  "version": "0.5.0",
-  "description": "This is a wrapper for the Chrome Extension Storage API that adds promises and functional set transactions similar to the React `this.setState` API. Functional set transactions make it easy to use the Chrome Storage API to share and manage state between different contexts in a Chrome Extension.",
+  "version": "0.0.0",
+  "description": "Test Chrome extensions with Jest. A complete mock of the Chrome API.",
+  "keywords": [
+    "api",
+    "chrome",
+    "chromium",
+    "extension",
+    "jest",
+    "mock",
+    "test"
+  ],
   "repository": "bumble-org/jest-chrome",
   "license": "MIT",
-  "author": "<jacksteamdev@gmail.com>",
+  "author": "Jack Steam <jacksteamdev@gmail.com>",
   "files": [
-    "lib/*.js",
-    "lib/*.js.map",
-    "types/*.d.ts"
+    "lib",
+    "types"
   ],
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "build": "run-p build:dev",
+    "build": "run-p build:pro build:types build:copy",
+    "build:copy": "copyfiles -f src/jest-chrome.d.ts types",
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build:pro": "rollup -c --environment NODE_ENV:production",
     "build:types": "tsc -p tsconfig.d.json",
     "build:watch": "npm run build:dev -- -w",
-    "format": "run-s format:*",
-    "format:package": "sort-package-json && git add package.json",
-    "format:staged": "pretty-quick --staged",
-    "release:full": "git push && npm publish",
     "release:beta": "git push && npm publish --tag beta",
+    "release:full": "git push && npm publish",
     "start": "run-p build:watch",
     "test": "jest",
-    "preversion": "run-s test build:pro build:types"
+    "preversion": "run-s test build"
   },
   "dependencies": {
     "@bumble/chrome-rxjs": "^0.10.1",
@@ -37,6 +43,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-json": "^4.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "@rollup/plugin-typescript": "^2.1.0",
     "@sucrase/jest-plugin": "^2.0.0",
@@ -51,6 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "chrome-promise": "^3.0.5",
+    "copyfiles": "^2.2.0",
     "delay": "^4.3.0",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.6.0",

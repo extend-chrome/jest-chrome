@@ -3,8 +3,13 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "types",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
   },
   "include": ["src"],
-  "exclude": ["playground", "node_modules", "lib"]
+  "exclude": [
+    "**/*.test.ts",
+    "lib",
+    "node_modules",
+    "playground"
+  ]
 }

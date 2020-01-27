@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 import typescript from '@rollup/plugin-typescript'
+import json from '@rollup/plugin-json'
 
 export default [
   {
@@ -23,6 +24,6 @@ export default [
       'rxjs',
       'rxjs/operators',
     ],
-    plugins: [typescript()],
+    plugins: [typescript(), json()],
   },
 ]

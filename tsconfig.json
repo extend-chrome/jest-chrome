@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "module": "es2015",
+    "lib": ["es2017", "dom", "esnext.array"],
+    "module": "CommonJS",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "outDir": "dist",
+    "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2017",
-    "lib": ["es2017", "dom", "esnext.array"]
+    "target": "es2017"
   },
   "exclude": ["lib"],
   "typeAcquisition": {
