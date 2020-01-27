@@ -1,6 +1,6 @@
 {
   "name": "@bumble/jest-chrome",
-  "version": "0.1.0-0",
+  "version": "0.2.0-0",
   "description": "Test Chrome extensions with Jest. A complete mock of the Chrome API.",
   "keywords": [
     "api",
