@@ -8303,15 +8303,10 @@ export namespace Sessions {
  * @since Chrome 20.
  */
 export namespace Storage {
+  type GetBytesInUseCallback = (bytesInUse: number) => void
+  type GetCallback = (items: { [key: string]: any }) => void
+
   export interface StorageArea {
-    /**
-     * Gets the amount of space (in bytes) being used by one or more items.
-     *
-     * @param callback Callback with the amount of space being used by storage, or on failure (in which case runtime.lastError will be set).
-     *
-     * Parameter bytesInUse: Amount of space being used in storage, in bytes.
-     */
-    getBytesInUse(callback: (bytesInUse: number) => void): void
     /**
      * Gets the amount of space (in bytes) being used by one or more items.
      *
@@ -8321,10 +8316,11 @@ export namespace Storage {
      *
      * Parameter bytesInUse: Amount of space being used in storage, in bytes.
      */
-    getBytesInUse(
-      keys: string | string[] | null,
-      callback: (bytesInUse: number) => void,
-    ): void
+    getBytesInUse: jest.Mock<
+      void,
+      | [string | string[] | null, GetBytesInUseCallback]
+      | [GetBytesInUseCallback]
+    >
     /**
      * Removes all items from storage.
      *
@@ -8332,7 +8328,7 @@ export namespace Storage {
      *
      * Callback on success, or on failure (in which case runtime.lastError will be set).
      */
-    clear(callback?: () => void): void
+    clear: jest.Mock<void, [() => void]>
     /**
      * Sets multiple items.
      *
@@ -8344,7 +8340,7 @@ export namespace Storage {
      *
      * Callback on success, or on failure (in which case runtime.lastError will be set).
      */
-    set(items: Record<string, any>, callback?: () => void): void
+    set: jest.Mock<void, [Record<string, any>, () => void]>
     /**
      * Removes one or more items from storage.
      *
@@ -8354,15 +8350,7 @@ export namespace Storage {
      *
      * Callback on success, or on failure (in which case runtime.lastError will be set).
      */
-    remove(keys: string | string[], callback?: () => void): void
-    /**
-     * Gets one or more items from storage.
-     *
-     * @param callback Callback with storage items, or on failure (in which case runtime.lastError will be set).
-     *
-     * Parameter items: Record<string, any> with items in their key-value mappings.
-     */
-    get(callback: (items: { [key: string]: any }) => void): void
+    remove: jest.Mock<void, [string | string[], () => void]>
     /**
      * Gets one or more items from storage.
      *
@@ -8374,10 +8362,14 @@ export namespace Storage {
      *
      * Parameter items: Record<string, any> with items in their key-value mappings.
      */
-    get(
-      keys: string | string[] | Record<string, any> | null,
-      callback: (items: { [key: string]: any }) => void,
-    ): void
+    get: jest.Mock<
+      void,
+      | [
+          string | string[] | Record<string, any> | null,
+          GetCallback,
+        ]
+      | [GetCallback]
+    >
   }
 
   export interface StorageChange {
