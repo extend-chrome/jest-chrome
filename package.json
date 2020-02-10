@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "@bumble/chrome-rxjs": "^0.10.1",
-    "@bumble/timeout": "^0.1.0",
     "@types/chrome": "^0.0.92",
     "rxjs": "^6.5.4"
   },
@@ -63,7 +62,6 @@
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.6.0",
     "fs-extra": "^8.1.0",
-    "jest": "^24.9.0",
     "jest-in-case": "^1.0.2",
     "lodash": "^4.17.15",
     "npm-run-all": "^4.1.5",
@@ -72,5 +70,8 @@
     "ts-jest": "^24.3.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.4"
+  },
+  "peerDependencies": {
+    "jest": "^24.9.0"
   }
 }
