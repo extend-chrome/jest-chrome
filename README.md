@@ -2,14 +2,14 @@
 
 # `@bumble/jest-chrome`
 
-A complete mock of the Chrome API for Chrome extensions for use
+A complete mock of the Chrome API for Chrome extensions, for use
 with Jest.
 
 The `chrome` object is based on schemas from the Chromium
 project.
 
 TypeScript support is built in. Each function and event is typed
-using the types from `@types/chrome`.
+using the types from [`@types/chrome`](https://www.npmjs.com/package/@types/chrome).
 
 ## Usage
 
