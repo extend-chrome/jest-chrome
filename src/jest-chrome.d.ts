@@ -3668,7 +3668,8 @@ export namespace Extension {
 
   export interface LastError {
     /** Description of the error that has taken place. */
-    message: string
+    readonly message: string
+    getMessage: jest.Mock<string, []>
   }
 
   export interface OnRequestEvent
@@ -7578,8 +7579,9 @@ export namespace Runtime {
   export const id: string
 
   export interface LastError {
-    /** Optional. Details about the error which occurred.  */
-    message?: string
+    /** Description of the error that has taken place. */
+    readonly message: string
+    getMessage: jest.Mock<string, []>
   }
 
   export interface ConnectInfo {

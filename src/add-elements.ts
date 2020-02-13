@@ -1,5 +1,5 @@
 import { createEvent } from './create-event'
-import { Storage } from './jest-chrome'
+import { Storage, Runtime } from './jest-chrome'
 
 /**
  * Namespace member data format from jest-chrome-schema.json
@@ -76,8 +76,16 @@ export const addProperty = (
   { name, value = null }: SchemaData<'property'>,
   target: any,
 ) => {
-  if (value === '%storage%') {
-    value = addStorageArea()
+  switch (value) {
+    case '%storage%':
+      value = addStorageArea()
+      break
+    case '%lastError%':
+      value = addLastError()
+      break
+
+    default:
+    // do nothing
   }
 
   // TODO: set property by type
@@ -93,5 +101,16 @@ export function addStorageArea(): Storage.StorageArea {
     getBytesInUse: jest.fn(),
     remove: jest.fn(),
     set: jest.fn(),
+  }
+}
+
+export function addLastError(): Runtime.LastError {
+  const getMessage = jest.fn()
+
+  return {
+    get message() {
+      return getMessage()
+    },
+    getMessage,
   }
 }

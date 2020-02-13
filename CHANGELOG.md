@@ -10,8 +10,14 @@ project adheres to
 
 ---
 
+## [**0.3.0**] - 2020-02-13
+
+### Added
+
+- Added `chrome.runtime.lastError` support
+
 ## [**0.2.0**] - 2020-02-10
 
 ### Added
 
-* The `chrome.storage` API has been added.
+- The `chrome.storage` API has been added.

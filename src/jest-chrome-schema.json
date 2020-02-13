@@ -2066,7 +2066,8 @@
     },
     "lastError": {
       "type": "property",
-      "name": "lastError"
+      "name": "lastError",
+      "value": "%lastError%"
     }
   },
   "extensionTypes": {},

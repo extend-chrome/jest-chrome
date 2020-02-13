@@ -1,0 +1,4 @@
+
+Todo:
+  ✔ Add `chrome.runtime.lastError` @high @started(20-02-13 09:14) @done(20-02-13 09:29) @lasted(15m20s)
+    Use `addProperty` and a special value in the schema
