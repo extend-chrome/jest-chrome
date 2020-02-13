@@ -33,9 +33,36 @@ export function createHandler(
         }
       }
     },
+    set(target, key, value) {
+      if (
+        key in schema &&
+        key === 'lastError' &&
+        !(
+          typeof value === 'object' &&
+          typeof value?.message === 'string'
+        )
+      ) {
+        throw new TypeError(
+          'chrome.runtime.lastError should be type { message: string }',
+        )
+      }
+
+      return Reflect.set(target, key, value)
+    },
+    deleteProperty(target, key) {
+      // Mark property as deleted, so it won't be retrieved from the schema
+      return Reflect.set(target, key, null)
+    },
+    has(target, key) {
+      const inTarget = key in target && Reflect.get(target, key)
+
+      return inTarget !== null && !!inTarget
+    },
     get(target, key) {
       if (key in target) {
-        return Reflect.get(target, key)
+        const value = Reflect.get(target, key)
+        // Check that the value wasn't deleted
+        return value !== null ? value : undefined
       } else if (key in schema) {
         switch (schema[key].type) {
           case 'event':

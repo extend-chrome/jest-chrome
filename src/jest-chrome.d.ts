@@ -3668,9 +3668,11 @@ export namespace Extension {
 
   export interface LastError {
     /** Description of the error that has taken place. */
-    readonly message: string
-    getMessage: jest.Mock<string, []>
+    message: string
   }
+
+  /** Set for the lifetime of a callback if an ansychronous extension api has resulted in an error. If no error has occured lastError will be undefined. */
+  export let lastError: LastError | undefined
 
   export interface OnRequestEvent
     extends JestChrome.events.Event<
@@ -3691,8 +3693,6 @@ export namespace Extension {
    * True for content scripts running inside incognito tabs, and for extension pages running inside an incognito process. The latter only applies to extensions with 'split' incognito_behavior.
    */
   export const inIncognitoContext: boolean
-  /** Set for the lifetime of a callback if an ansychronous extension api has resulted in an error. If no error has occured lastError will be undefined. */
-  export const lastError: LastError
 
   /** Returns the JavaScript 'window' object for the background page running inside the current extension. Returns null if the extension has no background page. */
   export const getBackgroundPage: jest.Mock<
@@ -7574,14 +7574,13 @@ export namespace Serial.onReceiveError {
  */
 export namespace Runtime {
   /** This will be defined during an API method callback if there was an error */
-  export const lastError: LastError | undefined
+  export let lastError: LastError | undefined
   /** The ID of the extension/app. */
   export const id: string
 
   export interface LastError {
     /** Description of the error that has taken place. */
-    readonly message: string
-    getMessage: jest.Mock<string, []>
+    message: string
   }
 
   export interface ConnectInfo {

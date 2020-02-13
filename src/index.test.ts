@@ -1,5 +1,5 @@
 import { chrome } from '.'
-import { Storage } from './jest-chrome'
+import { Storage, Runtime } from './jest-chrome'
 import {
   CallableEvent,
   EventCallback,
@@ -11,6 +11,10 @@ import { join } from 'path'
 const chromeSchema = readJSONSync(
   join(__dirname, 'jest-chrome-schema.json'),
 )
+
+afterEach(() => {
+  delete chrome.runtime.lastError
+})
 
 test('get: namespace', () => {
   expect(chrome.runtime).toBeDefined()
@@ -70,4 +74,42 @@ test('ownKeys: storage', () => {
     remove: expect.any(Function),
     set: expect.any(Function),
   })
+})
+
+test('set: lastError correctly', () => {
+  const lastErrorSpy = jest.fn(() => 'test')
+  const lastError = {
+    get message() {
+      return lastErrorSpy()
+    },
+  } as Runtime.LastError
+  const setter = () => (chrome.runtime.lastError = lastError)
+
+  expect(setter).not.toThrow()
+  expect(chrome.runtime.lastError?.message).toBe('test')
+  expect(lastErrorSpy).toBeCalled()
+})
+
+test('set: lastError incorrectly', () => {
+  const lastError = ('error' as unknown) as Runtime.LastError
+
+  const setter = () => (chrome.runtime.lastError = lastError)
+
+  expect(setter).toThrow()
+  expect(chrome.runtime.lastError).toBeUndefined()
+})
+
+test('deleteProperty: lastError', () => {
+  chrome.runtime.lastError = { message: 'test' }
+  const setter = () => delete chrome.runtime.lastError
+
+  expect(setter).not.toThrow()
+  expect(chrome.runtime.lastError).toBeUndefined()
+})
+
+test('deleteProperty: delete namespace', () => {
+  delete chrome.alarms
+
+  expect('alarms' in chrome).toBe(false)
+  expect(chrome.alarms).toBeUndefined()
 })
