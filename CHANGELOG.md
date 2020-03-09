@@ -15,6 +15,11 @@ project adheres to
 ### Improved
 
 - Move from jest.Mock to jest.MockedFunction
+- Update README.md
+
+### Added
+
+* Add lastError example to demo test and README.md
 
 ## [**0.3.0**] - 2020-02-13
 

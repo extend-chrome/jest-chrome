@@ -13,6 +13,69 @@ test('chrome api functions', () => {
   expect(chrome.runtime.getManifest).toBeCalled()
 })
 
+test('chrome api functions with callback', () => {
+  const message = { greeting: 'hello?' }
+  const response = { greeting: 'here I am' }
+  const callbackSpy = jest.fn()
+
+  chrome.runtime.sendMessage.mockImplementation(
+    (message, callback) => {
+      callback(response)
+    },
+  )
+
+  chrome.runtime.sendMessage(message, callbackSpy)
+
+  expect(chrome.runtime.sendMessage).toBeCalledWith(
+    message,
+    callbackSpy,
+  )
+  expect(callbackSpy).toBeCalledWith(response)
+})
+
+test('chrome api functions with lastError', () => {
+  const message = { greeting: 'hello?' }
+  const response = { greeting: 'here I am' }
+
+  const lastErrorSpy = jest.fn()
+  const callbackSpy = jest.fn(() => {
+    if (chrome.runtime.lastError) {
+      lastErrorSpy(chrome.runtime.lastError.message)
+    }
+  })
+
+  const lastErrorMessage = 'this is an error'
+  const lastErrorGetter = jest.fn(() => lastErrorMessage)
+  const lastError = {
+    get message() {
+      return lastErrorGetter()
+    },
+  }
+
+  chrome.runtime.sendMessage.mockImplementation(
+    (message, callback) => {
+      chrome.runtime.lastError = lastError
+
+      callback(response)
+
+      delete chrome.runtime.lastError
+    },
+  )
+
+  chrome.runtime.sendMessage(message, callbackSpy)
+
+  expect(chrome.runtime.sendMessage).toBeCalledWith(
+    message,
+    callbackSpy,
+  )
+
+  expect(callbackSpy).toBeCalledWith(response)
+  expect(lastErrorGetter).toBeCalled()
+  expect(lastErrorSpy).toBeCalledWith(lastErrorMessage)
+
+  expect(chrome.runtime.lastError).toBeUndefined()
+})
+
 test('chrome api events', () => {
   const listenerSpy = jest.fn()
   const sendResponseSpy = jest.fn()
