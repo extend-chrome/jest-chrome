@@ -1,15 +1,15 @@
 import { chrome } from '.'
-import { Storage, Runtime } from './jest-chrome'
+import { Storage, Runtime } from '../jest-chrome'
 import {
   CallableEvent,
   EventCallback,
   MonotypeEventSelector,
 } from './create-event'
 import { readJSONSync } from 'fs-extra'
-import { join } from 'path'
+import { resolve } from 'path'
 
 const chromeSchema = readJSONSync(
-  join(__dirname, 'jest-chrome-schema.json'),
+  resolve(__dirname, '..', 'jest-chrome-schema.json'),
 )
 
 afterEach(() => {

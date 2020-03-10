@@ -1,4 +1,5 @@
-import { CallableEvent, EventCallback, MonotypeEventSelector } from './create-event'
+/* eslint-disable no-shadow-restricted-names */
+import { CallableEvent, EventCallback, MonotypeEventSelector } from './src/create-event'
 
 // Derived from @types/chrome:
 // Type definitions for Chrome extension development
@@ -14,7 +15,9 @@ import { CallableEvent, EventCallback, MonotypeEventSelector } from './create-ev
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.4
 
-export namespace JestChrome {
+export type JestChrome = typeof JestChromeNamespace
+
+export namespace JestChromeNamespace {
   export { Alarms as alarms }
   export { Browser as browser }
   export { Bookmarks as bookmarks }
@@ -241,7 +244,7 @@ export namespace Alarms {
   }
 
   export interface AlarmEvent
-    extends JestChrome.events.Event<(alarm: Alarm) => void> {}
+    extends JestChromeNamespace.events.Event<(alarm: Alarm) => void> {}
 
   /**
    * Creates an alarm. Near the time(s) specified by alarmInfo, the onAlarm event is fired. If there is another alarm with the same name (or no name if none is specified), it will be cancelled and replaced by this alarm.
@@ -386,33 +389,33 @@ export namespace Bookmarks {
   }
 
   export interface BookmarkRemovedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (id: string, removeInfo: BookmarkRemoveInfo) => void
     > {}
 
   export interface BookmarkImportEndedEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface BookmarkMovedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (id: string, moveInfo: BookmarkMoveInfo) => void
     > {}
 
   export interface BookmarkImportBeganEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface BookmarkChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (id: string, changeInfo: BookmarkChangeInfo) => void
     > {}
 
   export interface BookmarkCreatedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (id: string, bookmark: BookmarkTreeNode) => void
     > {}
 
   export interface BookmarkChildrenReordered
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (id: string, reorderInfo: BookmarkReorderInfo) => void
     > {}
 
@@ -618,8 +621,8 @@ export namespace BrowserAction {
   }
 
   export interface BrowserClickedEvent
-    extends JestChrome.events.Event<
-      (tab: JestChrome.tabs.Tab) => void
+    extends JestChromeNamespace.events.Event<
+      (tab: JestChromeNamespace.tabs.Tab) => void
     > {}
 
   /**
@@ -967,7 +970,7 @@ export namespace Commands {
   }
 
   export interface CommandEvent
-    extends JestChrome.events.Event<(command: string) => void> {}
+    extends JestChromeNamespace.events.Event<(command: string) => void> {}
 
   /**
    * Returns all the registered extension commands for this extension and their shortcut (if active).
@@ -1555,7 +1558,7 @@ export namespace ContextMenus {
      */
     onclick?: (
       info: OnClickData,
-      tab: JestChrome.tabs.Tab,
+      tab: JestChromeNamespace.tabs.Tab,
     ) => void
     /** Optional. The ID of a parent menu item; this makes the item a child of a previously added item.  */
     parentId?: any
@@ -1594,8 +1597,8 @@ export namespace ContextMenus {
   }
 
   export interface MenuClickedEvent
-    extends JestChrome.events.Event<
-      (info: OnClickData, tab?: JestChrome.tabs.Tab) => void
+    extends JestChromeNamespace.events.Event<
+      (info: OnClickData, tab?: JestChromeNamespace.tabs.Tab) => void
     > {}
 
   /**
@@ -1762,7 +1765,7 @@ export namespace Cookies {
   }
 
   export interface CookieChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (changeInfo: CookieChangeInfo) => void
     > {}
 
@@ -1897,12 +1900,12 @@ export namespace Debugger {
   }
 
   export interface DebuggerDetachedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (source: Debuggee, reason: string) => void
     > {}
 
   export interface DebuggerEventEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         source: Debuggee,
         method: string,
@@ -2052,7 +2055,7 @@ export namespace DeclarativeContent {
 
   /** Provides the Declarative Event API consisting of addRules, removeRules, and getRules. */
   export interface PageChangedEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export const onPageChanged: PageChangedEvent
 }
@@ -2088,7 +2091,7 @@ export namespace DeclarativeWebRequest {
 
   export interface RequestMatcher {
     contentType?: string[]
-    url?: JestChrome.events.UrlFilter
+    url?: JestChromeNamespace.events.UrlFilter
     excludeContentType?: string[]
     excludeResponseHeader?: HeaderFilter[]
     resourceType?: string
@@ -2162,7 +2165,7 @@ export namespace DeclarativeWebRequest {
   }
 
   export interface RequestedEvent
-    extends JestChrome.events.DeclarativeContentEvent<
+    extends JestChromeNamespace.events.DeclarativeContentEvent<
       Function
     > {}
 
@@ -2285,12 +2288,12 @@ export namespace Devtools.inspectedWindow {
   }
 
   export interface ResourceAddedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (resource: Resource) => void
     > {}
 
   export interface ResourceContentCommittedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (resource: Resource, content: string) => void
     > {}
 
@@ -2300,27 +2303,26 @@ export namespace Devtools.inspectedWindow {
   /** Reloads the inspected page. */
   export const reload: jest.MockedFunction<typeof chrome.devtools.inspectedWindow.reload>
 
-  /**
-   * Evaluates a JavaScript expression in the context of the main frame of the inspected page. The expression must evaluate to a JSON-compliant object, otherwise an exception is thrown. The eval function can report either a DevTools-side error or a JavaScript exception that occurs during evaluation. In either case, the result parameter of the callback is undefined. In the case of a DevTools-side error, the isException parameter is non-null and has isError set to true and code set to an error code. In the case of a JavaScript error, isException is set to true and value is set to the string value of thrown object.
-   *
-   * @param expression An expression to evaluate.
-   *
-   * @param options The options parameter can contain one or more options.
-   *
-   * @param callback A function called when evaluation completes.
-   *
-   * If you specify the callback parameter, it should be a function that looks like this:
-   *
-   * function(object result, object exceptionInfo) {...};
-   *
-   * Parameter result: The result of evaluation.
-   *
-   * Parameter exceptionInfo: An object providing details if an exception occurred while evaluating the expression.
-   */
-  // eslint-disable-next-line
-  // @ts-ignore
-  // eslint-disable-next-line no-shadow-restricted-names
-  export const eval: jest.MockedFunction<typeof chrome.devtools.inspectedWindow.eval>
+  // /**
+  //  * Evaluates a JavaScript expression in the context of the main frame of the inspected page. The expression must evaluate to a JSON-compliant object, otherwise an exception is thrown. The eval function can report either a DevTools-side error or a JavaScript exception that occurs during evaluation. In either case, the result parameter of the callback is undefined. In the case of a DevTools-side error, the isException parameter is non-null and has isError set to true and code set to an error code. In the case of a JavaScript error, isException is set to true and value is set to the string value of thrown object.
+  //  *
+  //  * @param expression An expression to evaluate.
+  //  *
+  //  * @param options The options parameter can contain one or more options.
+  //  *
+  //  * @param callback A function called when evaluation completes.
+  //  *
+  //  * If you specify the callback parameter, it should be a function that looks like this:
+  //  *
+  //  * function(object result, object exceptionInfo) {...};
+  //  *
+  //  * Parameter result: The result of evaluation.
+  //  *
+  //  * Parameter exceptionInfo: An object providing details if an exception occurred while evaluating the expression.
+  //  */
+  // // eslint-disable-next-line
+  // // @ts-ignore
+  // export const eval: jest.MockedFunction<typeof chrome.devtools.inspectedWindow.eval>
 
   /**
    * Retrieves the list of resources from the inspected page.
@@ -2378,12 +2380,12 @@ export namespace Devtools.network {
   }
 
   export interface RequestFinishedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (request: Request) => void
     > {}
 
   export interface NavigatedEvent
-    extends JestChrome.events.Event<(url: string) => void> {}
+    extends JestChromeNamespace.events.Event<(url: string) => void> {}
 
   /**
    * Returns HAR log that contains all known network requests.
@@ -2414,13 +2416,13 @@ export namespace Devtools.network {
  */
 export namespace Devtools.panels {
   export interface PanelShownEvent
-    extends JestChrome.events.Event<(window: Window) => void> {}
+    extends JestChromeNamespace.events.Event<(window: Window) => void> {}
 
   export interface PanelHiddenEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface PanelSearchEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (action: string, queryString?: string) => void
     > {}
 
@@ -2449,7 +2451,7 @@ export namespace Devtools.panels {
   }
 
   export interface ButtonClickedEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   /** A button created by the extension. */
   export interface Button {
@@ -2472,7 +2474,7 @@ export namespace Devtools.panels {
   }
 
   export interface SelectionChangedEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   /** Represents the Elements panel. */
   export interface ElementsPanel {
@@ -2525,12 +2527,12 @@ export namespace Devtools.panels {
   }
 
   export interface ExtensionSidebarPaneShownEvent
-    extends JestChrome.events.Event<
-      (window: JestChrome.windows.Window) => void
+    extends JestChromeNamespace.events.Event<
+      (window: JestChromeNamespace.windows.Window) => void
     > {}
 
   export interface ExtensionSidebarPaneHiddenEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   /** A sidebar created by the extension. */
   export interface ExtensionSidebarPane {
@@ -2920,22 +2922,22 @@ export namespace Downloads {
   }
 
   export interface DownloadChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (downloadDelta: DownloadDelta) => void
     > {}
 
   export interface DownloadCreatedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (downloadItem: DownloadItem) => void
     > {}
 
   export interface DownloadErasedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (downloadId: number) => void
     > {}
 
   export interface DownloadDeterminingFilenameEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         downloadItem: DownloadItem,
         suggest: (
@@ -3421,14 +3423,14 @@ export namespace Extension {
   export let lastError: LastError | undefined
 
   export interface OnRequestEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       | ((
           request: any,
-          sender: JestChrome.runtime.MessageSender,
+          sender: JestChromeNamespace.runtime.MessageSender,
           sendResponse: (response: any) => void,
         ) => void)
       | ((
-          sender: JestChrome.runtime.MessageSender,
+          sender: JestChromeNamespace.runtime.MessageSender,
           sendResponse: (response: any) => void,
         ) => void)
     > {}
@@ -3559,7 +3561,7 @@ export namespace FileBrowserHandler {
   }
 
   export interface FileBrowserHandlerExecuteEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         id: string,
         details: FileHandlerExecuteEventDetails,
@@ -3842,7 +3844,7 @@ export namespace FileSystemProvider {
   }
 
   export interface RequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: RequestedEventOptions,
         successCallback: Function,
@@ -3851,7 +3853,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface MetadataRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: MetadataRequestedEventOptions,
         successCallback: (metadata: EntryMetadata) => void,
@@ -3860,7 +3862,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface DirectoryPathRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: DirectoryPathRequestedEventOptions,
         successCallback: (
@@ -3872,7 +3874,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface OpenFileRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: OpenFileRequestedEventOptions,
         successCallback: Function,
@@ -3881,7 +3883,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface OpenedFileRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: OpenedFileRequestedEventOptions,
         successCallback: Function,
@@ -3890,7 +3892,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface OpenedFileOffsetRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: OpenedFileOffsetRequestedEventOptions,
         successCallback: (
@@ -3902,7 +3904,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface DirectoryPathRecursiveRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: DirectoryPathRecursiveRequestedEventOptions,
         successCallback: Function,
@@ -3911,7 +3913,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface EntryPathRecursiveRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: EntryPathRecursiveRequestedEventOptions,
         successCallback: Function,
@@ -3920,7 +3922,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface FilePathRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: FilePathRequestedEventOptions,
         successCallback: Function,
@@ -3929,7 +3931,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface SourceTargetPathRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: SourceTargetPathRequestedEventOptions,
         successCallback: Function,
@@ -3938,7 +3940,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface FilePathLengthRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: FilePathLengthRequestedEventOptions,
         successCallback: Function,
@@ -3947,7 +3949,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface OpenedFileIoRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: OpenedFileIoRequestedEventOptions,
         successCallback: Function,
@@ -3956,7 +3958,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface OperationRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         options: OperationRequestedEventOptions,
         successCallback: Function,
@@ -3965,7 +3967,7 @@ export namespace FileSystemProvider {
     > {}
 
   export interface OptionlessRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         successCallback: Function,
         errorCallback: (error: string) => void,
@@ -4162,22 +4164,22 @@ export namespace FontSettings {
   }
 
   export interface DefaultFixedFontSizeChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: FontSizeDetails) => void
     > {}
 
   export interface DefaultFontSizeChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: FontSizeDetails) => void
     > {}
 
   export interface MinimumFontSizeChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: FontSizeDetails) => void
     > {}
 
   export interface FontChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: FullFontDetails) => void
     > {}
 
@@ -4359,15 +4361,15 @@ export namespace Gcm {
   }
 
   export interface MessageReceptionEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (message: IncomingMessage) => void
     > {}
 
   export interface MessageDeletionEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface GcmErrorEvent
-    extends JestChrome.events.Event<(error: GcmError) => void> {}
+    extends JestChromeNamespace.events.Event<(error: GcmError) => void> {}
 
   /** The maximum size (in bytes) of all key/value pairs in a message. */
   export const MAX_MESSAGE_SIZE: number
@@ -4491,12 +4493,12 @@ export namespace History {
   }
 
   export interface HistoryVisitedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (result: HistoryItem) => void
     > {}
 
   export interface HistoryVisitRemovedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (removed: RemovedResult) => void
     > {}
 
@@ -4699,7 +4701,7 @@ export namespace Identity {
   }
 
   export interface SignInChangeEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (account: AccountInfo, signedIn: boolean) => void
     > {}
 
@@ -4796,7 +4798,7 @@ export namespace Identity {
  */
 export namespace Idle {
   export interface IdleStateChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (newState: string) => void
     > {}
 
@@ -5123,12 +5125,12 @@ export namespace Input.ime {
   }
 
   export interface BlurEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (contextID: number) => void
     > {}
 
   export interface CandidateClickedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         engineID: string,
         candidateID: number,
@@ -5137,37 +5139,37 @@ export namespace Input.ime {
     > {}
 
   export interface KeyEventEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (engineID: string, keyData: KeyboardEvent) => void
     > {}
 
   export interface DeactivatedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (engineID: string) => void
     > {}
 
   export interface InputContextUpdateEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (context: InputContext) => void
     > {}
 
   export interface ActivateEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (engineID: string, screen: string) => void
     > {}
 
   export interface FocusEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (context: InputContext) => void
     > {}
 
   export interface MenuItemActivatedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (engineID: string, name: string) => void
     > {}
 
   export interface SurroundingTextChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         engineID: string,
         surroundingInfo: SurroundingTextInfo,
@@ -5175,7 +5177,7 @@ export namespace Input.ime {
     > {}
 
   export interface InputResetEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (engineID: string) => void
     > {}
 
@@ -5469,20 +5471,20 @@ export namespace Management {
   }
 
   export interface ManagementDisabledEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (info: ExtensionInfo) => void
     > {}
 
   export interface ManagementUninstalledEvent
-    extends JestChrome.events.Event<(id: string) => void> {}
+    extends JestChromeNamespace.events.Event<(id: string) => void> {}
 
   export interface ManagementInstalledEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (info: ExtensionInfo) => void
     > {}
 
   export interface ManagementEnabledEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (info: ExtensionInfo) => void
     > {}
 
@@ -5665,7 +5667,7 @@ export namespace Networking.config {
   }
 
   export interface CaptivePorttalDetectedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (networkInfo: NetworkInfo) => void
     > {}
 
@@ -5800,25 +5802,25 @@ export namespace Notifications {
   }
 
   export interface NotificationClosedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (notificationId: string, byUser: boolean) => void
     > {}
 
   export interface NotificationClickedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (notificationId: string) => void
     > {}
 
   export interface NotificationButtonClickedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (notificationId: string, buttonIndex: number) => void
     > {}
 
   export interface NotificationPermissionLevelChangedEvent
-    extends JestChrome.events.Event<(level: string) => void> {}
+    extends JestChromeNamespace.events.Event<(level: string) => void> {}
 
   export interface NotificationShowSettingsEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   /** The notification closed, either by the system or by user action. */
   export const onClosed: NotificationClosedEvent
@@ -5945,7 +5947,7 @@ export namespace Omnibox {
     | 'newBackgroundTab'
 
   export interface OmniboxInputEnteredEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         text: string,
         disposition: OnInputEnteredDisposition,
@@ -5953,7 +5955,7 @@ export namespace Omnibox {
     > {}
 
   export interface OmniboxInputChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         text: string,
         suggest: (suggestResults: SuggestResult[]) => void,
@@ -5961,13 +5963,13 @@ export namespace Omnibox {
     > {}
 
   export interface OmniboxInputStartedEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface OmniboxInputCancelledEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface OmniboxSuggestionDeletedEvent
-    extends JestChrome.events.Event<(text: string) => void> {}
+    extends JestChromeNamespace.events.Event<(text: string) => void> {}
 
   /**
    * Sets the description and styling for the default suggestion. The default suggestion is the text that is displayed in the first suggestion row underneath the URL bar.
@@ -6004,8 +6006,8 @@ export namespace Omnibox {
  */
 export namespace PageAction {
   export interface PageActionClickedEvent
-    extends JestChrome.events.Event<
-      (tab: JestChrome.tabs.Tab) => void
+    extends JestChromeNamespace.events.Event<
+      (tab: JestChromeNamespace.tabs.Tab) => void
     > {}
 
   export interface TitleDetails {
@@ -6393,14 +6395,14 @@ export namespace PrinterProvider {
   }
 
   export interface PrinterRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         resultCallback: (printerInfo: PrinterInfo[]) => void,
       ) => void
     > {}
 
   export interface PrinterInfoRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         device: any,
         resultCallback: (printerInfo?: PrinterInfo) => void,
@@ -6408,7 +6410,7 @@ export namespace PrinterProvider {
     > {}
 
   export interface CapabilityRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         printerId: string,
         resultCallback: (
@@ -6418,7 +6420,7 @@ export namespace PrinterProvider {
     > {}
 
   export interface PrintRequestedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         printJob: PrintJob,
         resultCallback: (result: string) => void,
@@ -6456,44 +6458,44 @@ export namespace PrinterProvider {
 export namespace Privacy {
   export interface Services {
     /** since Chrome 20. */
-    spellingServiceEnabled: JestChrome.types.ChromeSetting
-    searchSuggestEnabled: JestChrome.types.ChromeSetting
-    instantEnabled: JestChrome.types.ChromeSetting
-    alternateErrorPagesEnabled: JestChrome.types.ChromeSetting
-    safeBrowsingEnabled: JestChrome.types.ChromeSetting
+    spellingServiceEnabled: JestChromeNamespace.types.ChromeSetting
+    searchSuggestEnabled: JestChromeNamespace.types.ChromeSetting
+    instantEnabled: JestChromeNamespace.types.ChromeSetting
+    alternateErrorPagesEnabled: JestChromeNamespace.types.ChromeSetting
+    safeBrowsingEnabled: JestChromeNamespace.types.ChromeSetting
     /** @deprecated since Chrome 70. Please use privacy.services.autofillAddressEnabled and privacy.services.autofillCreditCardEnabled. */
-    autofillEnabled: JestChrome.types.ChromeSetting
-    translationServiceEnabled: JestChrome.types.ChromeSetting
+    autofillEnabled: JestChromeNamespace.types.ChromeSetting
+    translationServiceEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 38. */
-    passwordSavingEnabled: JestChrome.types.ChromeSetting
+    passwordSavingEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 42. */
-    hotwordSearchEnabled: JestChrome.types.ChromeSetting
+    hotwordSearchEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 42. */
-    safeBrowsingExtendedReportingEnabled: JestChrome.types.ChromeSetting
+    safeBrowsingExtendedReportingEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 70. */
-    autofillAddressEnabled: JestChrome.types.ChromeSetting
+    autofillAddressEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 70. */
-    autofillCreditCardEnabled: JestChrome.types.ChromeSetting
+    autofillCreditCardEnabled: JestChromeNamespace.types.ChromeSetting
   }
 
   export interface Network {
-    networkPredictionEnabled: JestChrome.types.ChromeSetting
+    networkPredictionEnabled: JestChromeNamespace.types.ChromeSetting
     /** @deprecated since Chrome 48. Please use privacy.network.webRTCIPHandlingPolicy. */
-    webRTCMultipleRoutesEnabled: JestChrome.types.ChromeSetting
+    webRTCMultipleRoutesEnabled: JestChromeNamespace.types.ChromeSetting
     /** @deprecated since Chrome 48. Please use privacy.network.webRTCIPHandlingPolicy. */
-    webRTCNonProxiedUdpEnabled: JestChrome.types.ChromeSetting
+    webRTCNonProxiedUdpEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 48. */
-    webRTCIPHandlingPolicy: JestChrome.types.ChromeSetting
+    webRTCIPHandlingPolicy: JestChromeNamespace.types.ChromeSetting
   }
 
   export interface Websites {
-    thirdPartyCookiesAllowed: JestChrome.types.ChromeSetting
-    referrersEnabled: JestChrome.types.ChromeSetting
-    hyperlinkAuditingEnabled: JestChrome.types.ChromeSetting
+    thirdPartyCookiesAllowed: JestChromeNamespace.types.ChromeSetting
+    referrersEnabled: JestChromeNamespace.types.ChromeSetting
+    hyperlinkAuditingEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 21. Available on Windows and ChromeOS only. */
-    protectedContentEnabled: JestChrome.types.ChromeSetting
+    protectedContentEnabled: JestChromeNamespace.types.ChromeSetting
     /** @since Chrome 65. */
-    doNotTrackEnabled: JestChrome.types.ChromeSetting
+    doNotTrackEnabled: JestChromeNamespace.types.ChromeSetting
   }
 
   /** Settings that enable or disable features that require third-party network services provided by Google and your default search provider. */
@@ -6581,11 +6583,11 @@ export namespace Proxy {
   }
 
   export interface ProxyErrorEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: ErrorDetails) => void
     > {}
 
-  export const settings: JestChrome.types.ChromeSetting
+  export const settings: JestChromeNamespace.types.ChromeSetting
   /** Notifies about proxy errors. */
   export const onProxyError: ProxyErrorEvent
 }
@@ -7064,7 +7066,7 @@ export namespace Runtime {
     /** The ID of the extension or app that opened the connection, if any. */
     id?: string
     /** The tabs.Tab which opened the connection, if any. This property will only be present when the connection was opened from a tab (including content scripts), and only if the receiver is an extension, not an app. */
-    tab?: JestChrome.tabs.Tab
+    tab?: JestChromeNamespace.tabs.Tab
     /**
      * The frame that opened the connection. 0 for top-level frames, positive for child frames. This will only be set when tab is set.
      *
@@ -7149,15 +7151,15 @@ export namespace Runtime {
     | 'update_available'
 
   export interface PortDisconnectEvent
-    extends JestChrome.events.Event<(port: Port) => void> {}
+    extends JestChromeNamespace.events.Event<(port: Port) => void> {}
 
   export interface PortMessageEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (message: any, port: Port) => void
     > {}
 
   export interface ExtensionMessageEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         message: any,
         sender: MessageSender,
@@ -7166,21 +7168,21 @@ export namespace Runtime {
     > {}
 
   export interface ExtensionConnectEvent
-    extends JestChrome.events.Event<(port: Port) => void> {}
+    extends JestChromeNamespace.events.Event<(port: Port) => void> {}
 
   export interface RuntimeInstalledEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: InstalledDetails) => void
     > {}
 
   export interface RuntimeEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   export interface RuntimeRestartRequiredEvent
-    extends JestChrome.events.Event<(reason: string) => void> {}
+    extends JestChromeNamespace.events.Event<(reason: string) => void> {}
 
   export interface RuntimeUpdateAvailableEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: UpdateAvailableDetails) => void
     > {}
 
@@ -7290,7 +7292,7 @@ export namespace Runtime {
       actions?: {
         type: string
       }[]
-      conditions?: JestChrome.declarativeContent.PageStateMatcherProperties[]
+      conditions?: JestChromeNamespace.declarativeContent.PageStateMatcherProperties[]
     }[]
     externally_connectable?: {
       ids?: string[]
@@ -7590,8 +7592,8 @@ export namespace ScriptBadge {
   }
 
   export interface ScriptBadgeClickedEvent
-    extends JestChrome.events.Event<
-      (tab: JestChrome.tabs.Tab) => void
+    extends JestChromeNamespace.events.Event<
+      (tab: JestChromeNamespace.tabs.Tab) => void
     > {}
 
   export const getPopup: jest.MockedFunction<typeof chrome.scriptBadge.getPopup>
@@ -7629,13 +7631,13 @@ export namespace Sessions {
      *
      * The tabs.Tab, if this entry describes a tab. Either this or sessions.Session.window will be set.
      */
-    tab?: JestChrome.tabs.Tab
+    tab?: JestChromeNamespace.tabs.Tab
     /**
      * Optional.
      *
      * The windows.Window, if this entry describes a window. Either this or sessions.Session.tab will be set.
      */
-    window?: JestChrome.windows.Window
+    window?: JestChromeNamespace.windows.Window
   }
 
   export interface Device {
@@ -7646,7 +7648,7 @@ export namespace Sessions {
   }
 
   export interface SessionChangedEvent
-    extends JestChrome.events.Event<() => void> {}
+    extends JestChromeNamespace.events.Event<() => void> {}
 
   /** The maximum number of sessions.Session that will be included in a requested list. */
   export const MAX_SESSION_RESULTS: number
@@ -7795,7 +7797,7 @@ export namespace Storage {
   }
 
   export interface StorageChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         changes: { [key: string]: StorageChange },
         areaName: string,
@@ -7986,12 +7988,12 @@ export namespace System.storage {
   }
 
   export interface SystemStorageAttachedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (info: StorageUnitInfo) => void
     > {}
 
   export interface SystemStorageDetachedEvent
-    extends JestChrome.events.Event<(id: string) => void> {}
+    extends JestChromeNamespace.events.Event<(id: string) => void> {}
 
   /** Get the storage information from the system. The argument passed to the callback is an array of StorageUnitInfo objects. */
   export const getInfo: jest.MockedFunction<typeof chrome.system.storage.getInfo>
@@ -8598,7 +8600,7 @@ export namespace System.display {
   /**
    *  Fired when anything changes to the display configuration.
    */
-  export const onDisplayChanged: JestChrome.events.Event<() => void>
+  export const onDisplayChanged: JestChromeNamespace.events.Event<() => void>
 }
 
 ////////////////////
@@ -8637,7 +8639,7 @@ export namespace TabCapture {
   }
 
   export interface CaptureStatusChangedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (info: CaptureInfo) => void
     > {}
 
@@ -9220,17 +9222,17 @@ export namespace Tabs {
   }
 
   export interface TabHighlightedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (highlightInfo: TabHighlightInfo) => void
     > {}
 
   export interface TabRemovedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (tabId: number, removeInfo: TabRemoveInfo) => void
     > {}
 
   export interface TabUpdatedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         tabId: number,
         changeInfo: TabChangeInfo,
@@ -9239,40 +9241,40 @@ export namespace Tabs {
     > {}
 
   export interface TabAttachedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (tabId: number, attachInfo: TabAttachInfo) => void
     > {}
 
   export interface TabMovedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (tabId: number, moveInfo: TabMoveInfo) => void
     > {}
 
   export interface TabDetachedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (tabId: number, detachInfo: TabDetachInfo) => void
     > {}
 
   export interface TabCreatedEvent
-    extends JestChrome.events.Event<(tab: Tab) => void> {}
+    extends JestChromeNamespace.events.Event<(tab: Tab) => void> {}
 
   export interface TabActivatedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (activeInfo: TabActiveInfo) => void
     > {}
 
   export interface TabReplacedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (addedTabId: number, removedTabId: number) => void
     > {}
 
   export interface TabSelectedEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (tabId: number, selectInfo: TabWindowInfo) => void
     > {}
 
   export interface TabZoomChangeEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (ZoomChangeInfo: ZoomChangeInfo) => void
     > {}
 
@@ -9726,30 +9728,30 @@ export namespace TtsEngine {
   }
 
   export interface TtsEngineSpeakEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         utterance: string,
         options: SpeakOptions,
-        sendTtsEvent: (event: JestChrome.tts.TtsEvent) => void,
+        sendTtsEvent: (event: JestChromeNamespace.tts.TtsEvent) => void,
       ) => void
     > {}
 
   /** Called when the user makes a call to tts.speak() and one of the voices from this extension's manifest is the first to match the options object. */
   export const onSpeak: TtsEngineSpeakEvent
   /** Fired when a call is made to tts.stop and this extension may be in the middle of speaking. If an extension receives a call to onStop and speech is already stopped, it should do nothing (not raise an error). If speech is in the paused state, this should cancel the paused state. */
-  export const onStop: JestChrome.events.Event<() => void>
+  export const onStop: JestChromeNamespace.events.Event<() => void>
   /**
    * Optional: if an engine supports the pause event, it should pause the current utterance being spoken, if any, until it receives a resume event or stop event. Note that a stop event should also clear the paused state.
    *
    * @since Chrome 29.
    */
-  export const onPause: JestChrome.events.Event<() => void>
+  export const onPause: JestChromeNamespace.events.Event<() => void>
   /**
    * Optional: if an engine supports the pause event, it should also support the resume event, to continue speaking the current utterance, if any. Note that a stop event should also clear the paused state.
    *
    * @since Chrome 29.
    */
-  export const onResume: JestChrome.events.Event<() => void>
+  export const onResume: JestChromeNamespace.events.Event<() => void>
 }
 
 ////////////////////
@@ -9840,7 +9842,7 @@ export namespace Types {
   }
 
   export interface ChromeSettingChangedEvent
-    extends JestChrome.events.Event<DetailsCallback> {}
+    extends JestChromeNamespace.events.Event<DetailsCallback> {}
 
   /** An interface that allows access to a Chrome browser setting. See accessibilityFeatures for an example. */
   export interface ChromeSetting {
@@ -9915,20 +9917,20 @@ export namespace VpnProvider {
   }
 
   export interface VpnPlatformMessageEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (id: string, message: string, error: string) => void
     > {}
 
   export interface VpnPacketReceptionEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (data: ArrayBuffer) => void
     > {}
 
   export interface VpnConfigRemovalEvent
-    extends JestChrome.events.Event<(id: string) => void> {}
+    extends JestChromeNamespace.events.Event<(id: string) => void> {}
 
   export interface VpnConfigCreationEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         id: string,
         name: string,
@@ -9937,7 +9939,7 @@ export namespace VpnProvider {
     > {}
 
   export interface VpnUiEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (event: string, id?: string) => void
     > {}
 
@@ -10166,12 +10168,12 @@ export namespace WebNavigation {
 
   export interface WebNavigationEventFilter {
     /** Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event. */
-    url: JestChrome.events.UrlFilter[]
+    url: JestChromeNamespace.events.UrlFilter[]
   }
 
   export interface WebNavigationEvent<
     T extends WebNavigationCallbackDetails
-  > extends JestChrome.events.Event<(details: T) => void> {
+  > extends JestChromeNamespace.events.Event<(details: T) => void> {
     addListener(
       callback: (details: T) => void,
       filters?: WebNavigationEventFilter,
@@ -10475,7 +10477,7 @@ export namespace WebRequest {
   }
 
   export interface WebRequestBodyEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: WebRequestBodyDetails) => BlockingResponse | void
     > {
     addListener(
@@ -10488,7 +10490,7 @@ export namespace WebRequest {
   }
 
   export interface WebRequestHeadersSynchronousEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         details: WebRequestHeadersDetails,
       ) => BlockingResponse | void
@@ -10503,7 +10505,7 @@ export namespace WebRequest {
   }
 
   export interface WebRequestHeadersEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (details: WebRequestHeadersDetails) => void
     > {
     addListener(
@@ -10516,7 +10518,7 @@ export namespace WebRequest {
   // eslint-disable-next-line
   export interface _WebResponseHeadersEvent<
     T extends WebResponseHeadersDetails
-  > extends JestChrome.events.Event<(details: T) => void> {
+  > extends JestChromeNamespace.events.Event<(details: T) => void> {
     addListener(
       callback: (details: T) => void,
       filter?: RequestFilter,
@@ -10525,7 +10527,7 @@ export namespace WebRequest {
   }
 
   export interface WebResponseHeadersEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         details: WebResponseHeadersDetails,
       ) => BlockingResponse | void
@@ -10548,7 +10550,7 @@ export namespace WebRequest {
     > {}
 
   export interface WebAuthenticationChallengeEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (
         details: WebAuthenticationChallengeDetails,
         callback?: (response: BlockingResponse) => void,
@@ -10656,10 +10658,10 @@ export namespace Webstore {
   export const install: jest.MockedFunction<typeof chrome.webstore.install>
 
   export interface InstallationStageEvent
-    extends JestChrome.events.Event<(stage: string) => void> {}
+    extends JestChromeNamespace.events.Event<(stage: string) => void> {}
 
   export interface DownloadProgressEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (percentDownloaded: number) => void
     > {}
 
@@ -10690,7 +10692,7 @@ export namespace Webstore {
 export namespace Windows {
   export interface Window {
     /** Array of tabs.Tab objects representing the current tabs in the window. */
-    tabs?: JestChrome.tabs.Tab[]
+    tabs?: JestChromeNamespace.tabs.Tab[]
     /** Optional. The offset of the window from the top edge of the screen in pixels. Under some circumstances a Window may not be assigned top property, for example when querying closed windows from the sessions API. */
     top?: number
     /** Optional. The height of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned height property, for example when querying closed windows from the sessions API. */
@@ -10852,12 +10854,12 @@ export namespace Windows {
   }
 
   export interface WindowIdEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (windowId: number, filters?: WindowEventFilter) => void
     > {}
 
   export interface WindowReferenceEvent
-    extends JestChrome.events.Event<
+    extends JestChromeNamespace.events.Event<
       (window: Window, filters?: WindowEventFilter) => void
     > {}
 

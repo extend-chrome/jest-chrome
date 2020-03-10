@@ -1,5 +1,5 @@
 import { createEvent } from './create-event'
-import { Storage } from './jest-chrome'
+import { Storage } from '../jest-chrome'
 
 /**
  * Namespace member data format from jest-chrome-schema.json
