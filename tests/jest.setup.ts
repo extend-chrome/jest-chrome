@@ -1,2 +1,2 @@
-import { chrome } from '../src/index'
-;(window as any).chrome = chrome
+// Add chrome object to global scope
+Object.assign(global, require('../src/index'))
