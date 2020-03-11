@@ -60,13 +60,7 @@ test('chrome api functions with lastError', () => {
   const message = { greeting: 'hello?' }
   const response = { greeting: 'here I am' }
 
-  const lastErrorSpy = jest.fn()
-  const callbackSpy = jest.fn(() => {
-    if (chrome.runtime.lastError) {
-      lastErrorSpy(chrome.runtime.lastError.message)
-    }
-  })
-
+  // lastError setup
   const lastErrorMessage = 'this is an error'
   const lastErrorGetter = jest.fn(() => lastErrorMessage)
   const lastError = {
@@ -75,28 +69,33 @@ test('chrome api functions with lastError', () => {
     },
   }
 
+  // mock implementation
   chrome.runtime.sendMessage.mockImplementation(
     (message, callback) => {
       chrome.runtime.lastError = lastError
 
       callback(response)
 
+      // lastError is undefined outside of a callback
       delete chrome.runtime.lastError
     },
   )
 
-  chrome.runtime.sendMessage(message, callbackSpy)
+  // callback implementation
+  const lastErrorSpy = jest.fn()
+  const callbackSpy = jest.fn(() => {
+    if (chrome.runtime.lastError) {
+      lastErrorSpy(chrome.runtime.lastError.message)
+    }
+  })
 
-  expect(chrome.runtime.sendMessage).toBeCalledWith(
-    message,
-    callbackSpy,
-  )
+  // send a message
+  chrome.runtime.sendMessage(message, callbackSpy)
 
   expect(callbackSpy).toBeCalledWith(response)
   expect(lastErrorGetter).toBeCalled()
   expect(lastErrorSpy).toBeCalledWith(lastErrorMessage)
 
+  // lastError has been cleared
   expect(chrome.runtime.lastError).toBeUndefined()
 })
-
-
