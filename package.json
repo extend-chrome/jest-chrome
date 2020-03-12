@@ -25,11 +25,12 @@
     "jest-chrome.d.ts"
   ],
   "scripts": {
-    "build": "run-p build:pro build:types build:copy",
+    "build": "run-s build:clean build:pro build:types build:copy",
     "build:copy": "copyfiles -f src/jest-chrome.d.ts types",
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build:pro": "rollup -c --environment NODE_ENV:production",
     "build:types": "tsc -p tsconfig.d.json",
+    "build:clean": "rm -rf lib types",
     "build:watch": "npm run build:dev -- -w",
     "release:beta": "git push && npm publish --tag beta",
     "release:full": "git push && npm publish",

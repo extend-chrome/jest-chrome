@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow-restricted-names */
-import { CallableEvent, EventCallback, MonotypeEventSelector } from './src/create-event'
+import { CallableEvent, EventCallback, MonotypeEventSelector } from './create-event'
 
 // Derived from @types/chrome:
 // Type definitions for Chrome extension development
