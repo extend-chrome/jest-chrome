@@ -1,5 +1,5 @@
 import { chrome } from '.'
-import { Storage, Runtime } from '../jest-chrome'
+import { Storage, Runtime } from './jest-chrome'
 import {
   CallableEvent,
   EventCallback,

@@ -1,6 +1,6 @@
-import jestChromeSchema from '../jest-chrome-schema.json';
+import jestChromeSchema from './jest-chrome-schema.json';
 import { addEvent, addFunction, addProperty } from './add-elements';
-import { JestChrome } from '../jest-chrome';
+import { JestChrome } from './jest-chrome';
 
 export function createHandler(schema = jestChromeSchema as any): ProxyHandler<JestChrome> {
   return {
