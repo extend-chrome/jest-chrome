@@ -15,15 +15,15 @@
   "repository": "bumble-org/jest-chrome",
   "license": "MIT",
   "author": "Jack Steam <jacksteamdev@gmail.com>",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "types": "types/index.d.ts",
   "files": [
     "lib",
     "types",
     "jest-chrome-schema.json",
     "jest-chrome.d.ts"
   ],
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.esm.js",
-  "types": "types/index.d.ts",
   "scripts": {
     "build": "run-p build:pro build:types build:copy",
     "build:copy": "copyfiles -f src/jest-chrome.d.ts types",
