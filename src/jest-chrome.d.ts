@@ -3117,7 +3117,7 @@ export namespace Enterprise.platformKeys {
    *
    * Parameter tokens: The list of available tokens.
    */
-  export const getToken: jest.MockedFunction<typeof chrome.enterprise.platformKeys.getToken>
+  export const getTokens: jest.MockedFunction<typeof chrome.enterprise.platformKeys.getTokens>
   /**
    * Returns the list of all client certificates available from the given token. Can be used to check for the existence and expiration of client certificates that are usable for a certain authentication.
    *
