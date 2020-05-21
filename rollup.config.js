@@ -24,6 +24,11 @@ export default [
       'rxjs',
       'rxjs/operators',
     ],
-    plugins: [typescript(), json()],
+    plugins: [
+      typescript({
+        tsconfig: './tsconfig.base.json',
+      }),
+      json(),
+    ],
   },
 ]
