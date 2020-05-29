@@ -35,8 +35,7 @@
     "postpublish": "rm -rf node_modules package-lock.json && pnpm i",
     "start": "run-p build:watch",
     "pretest": "npm run build",
-    "test": "jest",
-    "preversion": "npm run test"
+    "test": "jest"
   },
   "dependencies": {
     "@types/chrome": "^0.0.114"
