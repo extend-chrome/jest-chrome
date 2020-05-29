@@ -18,12 +18,6 @@ export default [
         sourcemap: true,
       },
     ],
-    external: [
-      'chrome-promise',
-      '@bumble/chrome-rxjs',
-      'rxjs',
-      'rxjs/operators',
-    ],
     plugins: [
       typescript({
         tsconfig: './tsconfig.base.json',
