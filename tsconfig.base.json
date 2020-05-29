@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "lib": ["es2017", "dom", "esnext.array"],
-    "module": "CommonJS",
+    "module": "ES2015",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es2017"
   },
-  "exclude": ["lib", "playground"],
+  "exclude": ["lib", "playground", "tests"],
   "typeAcquisition": {
     "enable": true
   }
