@@ -1,6 +1,6 @@
 # **Change Log** 📜📝
 
-All notable changes to "**@bumble/jest-chrome**" library will be
+All notable changes to "**jest-chrome**" library will be
 documented in this file.
 
 The format is based on
