@@ -1,5 +1,5 @@
 {
-  "name": "@bumble/jest-chrome",
+  "name": "jest-chrome",
   "version": "0.5.3",
   "description": "Test Chrome extensions with Jest. A complete mock of the Chrome API.",
   "keywords": [
@@ -12,7 +12,8 @@
     "test",
     "typescript"
   ],
-  "repository": "bumble-org/jest-chrome",
+  "repository": "github:extend-chrome/jest-chrome",
+  "bugs": "https://github.com/extend-chrome/jest-chrome/issues",
   "license": "MIT",
   "author": "Jack Steam <jacksteamdev@gmail.com>",
   "main": "lib/index.cjs.js",

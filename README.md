@@ -1,21 +1,17 @@
-# `@bumble/jest-chrome`
+# `jest-chrome`
 
 A complete mock of the Chrome API for Chrome extensions, for use
 with Jest.
 
-The `chrome` object is based on schemas from the Chromium
-project, with thanks to
-[`sinon-chrome`](https://github.com/acvetkov/sinon-chrome) for
-compiling the schemas.
-
 TypeScript support is built in. Each function and event is based
-on
-[`@types/chrome`](https://www.npmjs.com/package/@types/chrome).
+on the
+[`@types/chrome`](https://www.npmjs.com/package/@types/chrome)
+package.
 
 ## Installation
 
 ```sh
-npm i @bumble/jest-chrome -D
+npm i jest-chrome -D
 ```
 
 Set `chrome` in the global scope during setup so that it is
@@ -36,14 +32,14 @@ Use the setup file to assign the mocked `chrome` object to the
 ```javascript
 // jest.setup.js
 
-Object.assign(global, require('@bumble/jest-chrome'))
+Object.assign(global, require('jest-chrome'))
 ```
 
-Import `chrome` from `@bumble/jest-chrome` for Intellisense and
-linting. This is the same object as `chrome` in the global scope.
+Import `chrome` from `jest-chrome` for Intellisense and linting.
+This is the same object as `chrome` in the global scope.
 
 ```javascript
-import { chrome } from '@bumble/jest-chrome'
+import { chrome } from 'jest-chrome'
 ```
 
 ## Usage
@@ -201,3 +197,13 @@ test('chrome api functions with lastError', () => {
   expect(chrome.runtime.lastError).toBeUndefined()
 })
 ```
+
+### Contributions
+
+The `chrome` object is based on schemas from the Chromium
+project, with thanks to
+[`sinon-chrome`](https://github.com/acvetkov/sinon-chrome) for
+compiling the schemas.
+
+Special thanks to [@shellscape](https://github.com/shellscape)
+for transferring the NPM package name `jest-chrome` to us!
