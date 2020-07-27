@@ -49,6 +49,11 @@ type Callable<
   clearListeners(): void
 
   /**
+   * Get the listener Set
+   */
+  getListeners(): Set<C>
+
+  /**
    * Returns CallableEvent without callListeners
    */
   toEvent(): CoreEvent<C>
@@ -83,7 +88,7 @@ export const createEvent = <C extends EventCallback>(
  */
 export function createSetEvent<
   C extends EventCallback,
-  R extends MonotypeEventSelector<C> | EventSelector<C>
+  R extends EventSelector<C> | MonotypeEventSelector<C>
 >(selector: R): CallableEvent<C, R> {
   const _cbs = new Set<C>()
 
@@ -93,6 +98,7 @@ export function createSetEvent<
     hasListeners,
     callListeners,
     clearListeners,
+    getListeners,
     removeListener,
     toEvent() {
       return {
@@ -114,6 +120,8 @@ export function createSetEvent<
     return _cbs.size > 0
   }
   function callListeners(...args: Parameters<R>) {
+    // eslint-disable-next-line
+    // @ts-ignore
     const cbArgs = selector(...args)
 
     if (cbArgs) {
@@ -127,6 +135,9 @@ export function createSetEvent<
   }
   function clearListeners() {
     _cbs.clear()
+  }
+  function getListeners() {
+    return new Set(_cbs.values())
   }
 }
 
@@ -143,7 +154,7 @@ export function createSetEvent<
  */
 export function createMapEvent<
   C extends EventCallback,
-  E extends MonotypeEventSelector<C> | EventSelector<C>,
+  E extends EventSelector<C> | MonotypeEventSelector<C>,
   O extends OptionsSelector
 >(eventSelector: E, optionsSelector?: O): CallableEvent<C, E> {
   const _cbs: Map<C, any[]> = new Map()
@@ -154,6 +165,7 @@ export function createMapEvent<
     hasListeners,
     callListeners,
     clearListeners,
+    getListeners,
     removeListener,
     toEvent() {
       return {
@@ -181,6 +193,8 @@ export function createMapEvent<
   }
   function callListeners(...args: any[]) {
     _cbs.forEach((options, cb) => {
+      // eslint-disable-next-line
+      // @ts-ignore
       const cbArgs = eventSelector(...options, ...args)
 
       if (cbArgs) {
@@ -193,5 +207,8 @@ export function createMapEvent<
   }
   function clearListeners() {
     _cbs.clear()
+  }
+  function getListeners() {
+    return new Set(_cbs.keys())
   }
 }

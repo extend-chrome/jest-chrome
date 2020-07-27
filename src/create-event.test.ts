@@ -18,15 +18,30 @@ describe('CallableEvent', () => {
     expect(spy).not.toBeCalled()
   })
 
+  test('getListeners', () => {
+    const selector = (x: any) => [x]
+    const event = createEvent(selector)
+    const spy = jest.fn()
+
+    event.addListener(spy)
+
+    const set = event.getListeners()
+
+    expect(set.size).toBe(1)
+    expect(set.has(spy)).toBe(true)
+
+    expect(spy).not.toBeCalled()
+  })
+
   test('hasListeners', () => {
     const selector = (x: any) => [x]
     const event = createEvent(selector)
     const spy = jest.fn()
 
     expect(event.hasListeners()).toBe(false)
-    
+
     event.addListener(spy)
-    
+
     expect(event.hasListeners()).toBe(true)
 
     expect(spy).not.toBeCalled()
@@ -48,8 +63,6 @@ describe('CallableEvent', () => {
 
     expect(spy1).not.toBeCalled()
   })
-
-  
 
   test('removeListener 1', () => {
     const selector = (x: any) => [x]
