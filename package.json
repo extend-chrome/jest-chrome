@@ -1,6 +1,6 @@
 {
   "name": "jest-chrome",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Test Chrome extensions with Jest. A complete mock of the Chrome API.",
   "keywords": [
     "api",
