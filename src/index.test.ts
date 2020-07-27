@@ -46,6 +46,7 @@ test('get: event', () => {
     addListener: expect.any(Function),
     callListeners: expect.any(Function),
     clearListeners: expect.any(Function),
+    getListeners: expect.any(Function),
     hasListener: expect.any(Function),
     hasListeners: expect.any(Function),
     removeListener: expect.any(Function),
@@ -108,6 +109,8 @@ test('deleteProperty: lastError', () => {
 })
 
 test('deleteProperty: delete namespace', () => {
+  // eslint-disable-next-line
+  // @ts-ignore
   delete chrome.alarms
 
   expect('alarms' in chrome).toBe(false)
