@@ -109,6 +109,8 @@ test('deleteProperty: lastError', () => {
 })
 
 test('deleteProperty: delete namespace', () => {
+  // eslint-disable-next-line
+  // @ts-ignore
   delete chrome.alarms
 
   expect('alarms' in chrome).toBe(false)
