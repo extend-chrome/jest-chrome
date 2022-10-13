@@ -7085,6 +7085,12 @@ export namespace Runtime {
      * @since Chrome 32.
      */
     tlsChannelId?: string
+    /**
+     * The origin of the page or frame that opened the connection. It can vary from the url property (e.g., about:blank) or can be opaque (e.g., sandboxed iframes). This is useful for identifying if the origin can be trusted if we can't immediately tell from the URL.
+     *    
+     * @since Chrome 80.
+    */
+    origin?: string;
   }
 
   /**
