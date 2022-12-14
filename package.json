@@ -70,8 +70,5 @@
     "ts-jest": "^26.0.0",
     "tslib": "^2.0.0",
     "typescript": "^3.9.3"
-  },
-  "peerDependencies": {
-    "jest": "^26.0.1 || ^27.0.0"
   }
 }
