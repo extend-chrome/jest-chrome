@@ -36,6 +36,16 @@ test('get: function', () => {
   expect(chrome.runtime.getManifest).toBeCalled()
 })
 
+test('async: undefined with callback', () => {
+  expect(chrome.runtime.openOptionsPage(() => 1)).toBeUndefined()
+})
+
+test('async: promise without callback', () => {
+  expect(chrome.runtime.openOptionsPage()).toBeInstanceOf(
+    Promise,
+  )
+})
+
 test('get: event', () => {
   expect(chrome.runtime.onMessage).toMatchObject<
     CallableEvent<
@@ -77,6 +87,16 @@ test('ownKeys: storage', () => {
   })
 })
 
+test('storage: undefined with callback', () => {
+  expect(
+    chrome.storage.local.get('key', () => 1),
+  ).toBeUndefined()
+})
+
+test('storage: promise without callback', () => {
+  expect(chrome.storage.local.get('key')).toBeInstanceOf(Promise)
+})
+
 test('set: lastError correctly', () => {
   const lastErrorSpy = jest.fn(() => 'test')
   const lastError = {
@@ -92,7 +112,7 @@ test('set: lastError correctly', () => {
 })
 
 test('set: lastError incorrectly', () => {
-  const lastError = ('error' as unknown) as Runtime.LastError
+  const lastError = 'error' as unknown as Runtime.LastError
 
   const setter = () => (chrome.runtime.lastError = lastError)
 

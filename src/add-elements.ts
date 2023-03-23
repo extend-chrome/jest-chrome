@@ -8,7 +8,7 @@ import { Storage } from './jest-chrome'
  * @template T Type of namespace member
  */
 interface SchemaData<
-  T extends 'event' | 'function' | 'property'
+  T extends 'event' | 'function' | 'property',
 > {
   name: string
   type: T
@@ -62,11 +62,30 @@ export const addEvent = (
   return event
 }
 
+/** As of Manifest v3, all the Chrome API functions that accepted a callback
+ * now return promises when the callback is not supplied.
+ */
+const makeAsyncMock = (callbackArgIndex: number) =>
+  jest
+    .fn()
+    .mockImplementation(
+      (...args: any[]): Promise<void> | void => {
+        if (!args[callbackArgIndex]) {
+          return Promise.resolve()
+        }
+      },
+    )
+
 export const addFunction = (
-  { name }: SchemaData<'function'>,
+  { name, parameters }: SchemaData<'function'>,
   target: any,
 ) => {
-  const fn = jest.fn()
+  const fn =
+    parameters?.length &&
+    parameters[parameters.length - 1]?.name === 'callback' &&
+    parameters[parameters.length - 1]?.type === 'function'
+      ? makeAsyncMock(parameters.length - 1)
+      : jest.fn()
   Object.assign(target, { [name]: fn })
 
   return fn
@@ -93,10 +112,10 @@ export const addProperty = (
 
 export function addStorageArea(): Storage.StorageArea {
   return {
-    clear: jest.fn(),
-    get: jest.fn(),
+    clear: makeAsyncMock(0),
+    get: makeAsyncMock(1),
     getBytesInUse: jest.fn(),
-    remove: jest.fn(),
-    set: jest.fn(),
+    remove: makeAsyncMock(1),
+    set: makeAsyncMock(1),
   }
 }
