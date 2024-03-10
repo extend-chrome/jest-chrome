@@ -9346,6 +9346,7 @@ export namespace Tabs {
    *
    * @param tabId The tab to close.
    */
+  export const remove: jest.MockedFunction<typeof chrome.tabs.remove>
 
   /**
    * Captures the visible area of the currently active tab in the specified window. You must have <all_urls> permission to use this method.
